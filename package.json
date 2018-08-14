@@ -1,0 +1,20 @@
+{
+  "name": "document",
+  "version": "1.0.0",
+  "description": "document",
+  "author": "Mario",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "keywords": [
+    "weex",
+    "weexbox"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "vuepress": "^0.14.1"
+  }
+}
