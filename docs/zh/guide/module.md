@@ -2,7 +2,7 @@
 
 ## callback返回数据格式
 ```js    
-resData 数据    
+result 数据    
 {
    status:0,   // 状态码，0表示操作成功 -1表示操作失败
    errorMsg: '错误描述信息',
@@ -308,51 +308,86 @@ const modal = weex.requireModule('wb-modal')
 
 **API**
 
-* 警告弹窗：`alert(info,callback)`
+* 警告弹窗：`alert(options, callback)`
 
 ```js
 modal.alert({
+    title: '标题', // 标题
     message: '我是一个弹窗',     // 弹窗内容
-    okTitle: '确定',            // 确定按钮文字
-    title:'标题'                // title
-}, function(){
+    okTitle: '确定'            // 确定按钮文字
+}, function(result) {
     // 点击按钮的回调
 })
 ```
 
-* 确定弹窗：`confirm(info,cancelCallback,okCallback)`
+* 确定弹窗：`confirm(options, callback)`
 
 ```js
 modal.confirm({
+    title: '标题',   // 标题
     message: '我是一个弹窗',       // 弹窗内容
     cancelTitle: '取消',          // 取消按钮文字
     okTitle: '确定'               // 确定按钮文字
-    title: ''   
-}, function(){
-    // 点击取消按钮回调 
-}, function(){
-    // 点击确定按钮回调
-});
-```
 
-* 提示框：`toast(info)`
-
-```js
-modal.toast({
-    message: '提示信息'    // 展示内容
+}, function(result) {
+    // 点击按钮回调 
 })
 ```
 
-* Loading提示框：`showLading(info)`
+* 输入弹窗：`prompt(options, callback)`
+
+```js
+modal.prompt({
+    title: '标题',   // 标题
+    message: '我是一个弹窗',       // 弹窗内容
+    placeholder: '请输入密码',    // 占位符
+    isSecure: true,           // 是否不显示输入，默认否
+    cancelTitle: '取消',          // 取消按钮文字
+    okTitle: '确定'               // 确定按钮文字
+}, function(result) {
+    // 点击按钮回调 
+})
+```
+
+* 操作表弹窗：`actionSheet(options, callback)`
+
+```js
+modal.actionSheet({
+    title: '标题',   // 标题
+    message: '我是一个弹窗',       // 弹窗内容
+    actions: [{  // action列表
+        type: 'danger' // 按钮类型：'danger', 'cancel', 'normal'。默认normal
+        title: '删除' // 按钮的标题
+    }]
+}, function(result) {
+    // 点击按钮回调 
+})
+```
+
+* 吐司：`showToast(text)`
+
+```js
+modal.showToast('提示信息') // 提示信息
+```
+
+* 显示菊花：`showLoading(options)`
 
 ```js
 // 调用方式
-modal.showLoading({
-    message: '加载中...'   // loading 文字，可为空
-});
+modal.showLoading('加载中...')    // loading 文字，可为空
 ```
 
-* 移除 Loading弹窗：`hideLoading()`
+* 设置菊花：`setLoading(options)`
+
+```js
+// 调用方式
+modal.setLoading({
+    text: '加载中...', // loading 文字，可为空
+    progress: 0.1, // 进度，可为空
+})    
+```
+
+* 关闭菊花：`hideLoading()`
 
 ```js
 modal.hideLoading()
@@ -427,6 +462,7 @@ const router = weex.requireModule('wb-router')
 router.open({
     url: 'sonme-module/index.js',  // 页面对应的 js 地址(注意路径从 /src/ 开始)
     type: '',  // push或present，默认为push
+    navBarHidden: false, // 是否隐藏导航栏，默认不隐藏
     params: {},  // 传到下一个页面的参数，params 通过 router.getParams(callback) 获取 
 }, function(){                                
         // callback   
@@ -544,8 +580,6 @@ storage.removeData(function(resData){
 // 同步方法：removeDataSync()
 const resData = storage.removeData()
 ```
-
-
 
 
 
