@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "publish": "npm run docs:build && surge vuepress weexbox.surge.sh"
   },
   "keywords": [
     "weex",
@@ -15,6 +16,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "vuepress": "^0.14.1"
+    "vuepress": "^0.14.2",
+    "surge": "^0.20.1"
   }
 }

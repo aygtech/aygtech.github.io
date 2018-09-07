@@ -1,10 +1,10 @@
-# Using Vue in Markdown
+# 在 Markdown 中 使用 Vue
 
-## Browser API Access Restrictions
+## 浏览器的 API 访问限制
 
-Because VuePress applications are server-rendered in Node.js when generating static builds, any Vue usage must conform to the [universal code requirements](https://ssr.vuejs.org/en/universal.html). In short, make sure to only access Browser / DOM APIs in `beforeMount` or `mounted` hooks.
+当你在开发一个 VuePress 应用时，由于所有的页面在生成静态 HTML 时都需要通过 Node.js 服务端渲染，因此所有的 Vue 相关代码都应当遵循 [编写通用代码](https://ssr.vuejs.org/zh/universal.html) 的要求。简而言之，请确保只在 `beforeMount` 或者 `mounted` 访问浏览器 / DOM 的 API。
 
-If you are using or demoing components that are not SSR friendly (for example containing custom directives), you can wrap them inside the built-in `<ClientOnly>` component:
+如果你正在使用，或者需要展示一个对于 SSR 不怎么友好的组件（比如包含了自定义指令），你可以将它们包裹在内置的 `<ClientOnly>` 组件中：
 
 ``` md
 <ClientOnly>
@@ -12,7 +12,7 @@ If you are using or demoing components that are not SSR friendly (for example co
 </ClientOnly>
 ```
 
-Note this does not fix components or libraries that access Browser APIs **on import** - in order to use code that assumes a browser environment on import, you need to dynamically import them in proper lifecycle hooks:
+请注意，这并不能解决一些组件或库在**导入**时就试图访问浏览器 API 的问题 —— 如果需要使用这样的组件或库，你需要在合适的生命周期钩子中**动态导入**它们：
 
 ``` vue
 <script>
@@ -26,11 +26,11 @@ export default {
 </script>
 ```
 
-## Templating
+## 模板语法
 
-### Interpolation
+### 插值
 
-Each markdown file is first compiled into HTML and then passed on as a Vue component to `vue-loader`. This means you can use Vue-style interpolation in text:
+每一个 Markdown 文件将首先被编译成 HTML，接着作为一个 Vue 组件传入 `vue-loader`，这意味着你可以在文本中使用 Vue 风格的插值：
 
 **Input**
 
@@ -42,9 +42,9 @@ Each markdown file is first compiled into HTML and then passed on as a Vue compo
 
 <div class="language-text"><pre><code>{{ 1 + 1 }}</code></pre></div>
 
-### Directives
+### 指令
 
-Directives also work:
+同样地，也可以使用指令:
 
 **Input**
 
@@ -56,9 +56,9 @@ Directives also work:
 
 <div class="language-text"><pre><code><span v-for="i in 3">{{ i }} </span></code></pre></div>
 
-### Access to Site & Page Data
+### 访问网站以及页面的数据
 
-The compiled component does not have any private data but does have access to the [site metadata](./custom-themes.md#site-and-page-metadata). For example:
+编译后的组件没有私有数据，但可以访问 [网站的元数据](./custom-themes.md#网站和页面的元数据)，举例来说：
 
 **Input**
 
@@ -78,7 +78,7 @@ The compiled component does not have any private data but does have access to th
 
 ## Escaping
 
-By default, fenced code blocks are automatically wrapped with `v-pre`. If you want to display raw mustaches or Vue-specific syntax inside inline code snippets or plain text, you need to wrap a paragraph with the `v-pre` custom container:
+默认情况下，块级 (block) 的代码块将会被自动包裹在 `v-pre` 中。如果你想要在内联 (inline) 的代码块或者普通文本中显示原始的大括号，或者一些 Vue 特定的语法，你需要使用自定义容器 `v-pre` 来包裹：
 
 **Input**
 
@@ -94,9 +94,9 @@ By default, fenced code blocks are automatically wrapped with `v-pre`. If you wa
 `{{ This will be displayed as-is }}`
 :::
 
-## Using Components
+## 使用组件
 
-Any `*.vue` files found in `.vuepress/components` are automatically registered as [global](https://vuejs.org/v2/guide/components-registration.html#Global-Registration), [async](https://vuejs.org/v2/guide/components-dynamic-async.html#Async-Components) components. For example:
+所有在 `.vuepress/components` 中找到的 `*.vue` 文件将会自动地被注册为全局的异步组件，如：
 
 ```
 .
@@ -108,7 +108,7 @@ Any `*.vue` files found in `.vuepress/components` are automatically registered a
          └─ Bar.vue
 ```
 
-Inside any markdown file you can then directly use the components (names are inferred from filenames):
+你可以直接使用这些组件在任意的 Markdown 文件中（组件名是通过文件名取到的）：
 
 ``` md
 <demo-1/>
@@ -122,58 +122,58 @@ Inside any markdown file you can then directly use the components (names are inf
 
 <Foo-Bar/>
 
-::: warning IMPORTANT
-Make sure a custom component's name either contains a hyphen or is in PascalCase. Otherwise it will be treated as an inline element and wrapped inside a `<p>` tag, which will lead to hydration mismatch because `<p>` does not allow block elements to be placed inside it.
+::: warning 重要！
+请确保一个自定义组件的名字包含连接符或者是 PascalCase，否则，它将会被视为一个内联元素，并被包裹在一个 `<p>` 标签中，这将会导致 HTML 渲染紊乱，因为 HTML 标准规定， `<p>` 标签中不允许放置任何块级元素。
 :::
 
-### Using Components In Headers
+### 在标题中使用组件
 
-You can use Vue components in the headers, but note the difference between the following two ways:
+你可以在标题中使用 Vue 组件，但是请留意以下两种方式的不同：
 
-| markdown | Output HTML | Parsed Header |
+| Markdown | 输出的 HTML | 解析后的标题 |
 |--------|-------------|----------------|
 | <pre v-pre><code> # text &lt;Tag/&gt; </code></pre> | `<h1>text <Tag/></h1>` | `text` |
 | <pre v-pre><code> # text \`&lt;Tag/&gt;\` </code></pre> | `<h1>text <code>&lt;Tag/&gt;</code></h1>` | `text <Tag/>` |
 
-The HTML wrapped by `<code>` will be displayed as is, only the HTML that is not wrapped will be parsed by Vue.
+被 `<code>` 包装的 HTML 将按原样显示，只有未被包装的 HTML 才会被 Vue 解析。
 
 ::: tip
-
-The output HTML is accomplished by [markdown-it](https://github.com/markdown-it/markdown-it), while the parsed headers are done by VuePress, and used for the [sidebar](../default-theme-config/README.md#sidebar) and the document title.
+输出的 HTML 由 [markdown-it](https://github.com/markdown-it/markdown-it) 完成。而解析后的标题由 VuePress 完成，用于[侧边栏](../default-theme-config/README.md#侧边栏)以及文档的标题。
 :::
 
-## Using Pre-processors
+## 使用预处理器
 
-VuePress has built-in webpack config for the following pre-processors: `sass`, `scss`, `less`, `stylus` and `pug`. All you need to do is installing the corresponding dependencies. For example, to enable `sass`, install the following in your project:
- 
+VuePress 对以下预处理器已经内置相关的 webpack 配置：`sass`、`scss`、`less`、`stylus` 和 `pug`。要使用它们你只需要在项目中安装对应的依赖即可。例如，要使用 `sass`，需要安装：
+
 ``` bash
 yarn add -D sass-loader node-sass
 ```
-
-Now you can use the following in markdown and theme components:
+ 
+然后你就可以在 Markdown 或是组件中使用如下代码：
 
 ``` vue
 <style lang="sass">
-.title
-  font-size: 20px
+  .title
+    font-size: 20px
 </style>
 ```
 
-Using `<template lang="pug">` requires installing `pug` and `pug-plain-loader`:
+要在组件中使用 `<template lang="pug">`，则需要安装 `pug` 和 `pug-plain-loader`:
 
 ``` bash
 yarn add -D pug pug-plain-loader
 ```
 
 ::: tip
-If you are a Stylus user, you don't need to install `stylus` and `stylus-loader` in your project because VuePress uses Stylus internally.
+需要指出的是，如果你是一个 `stylus` 用户，你并不需要在你的项目中安装 `stylus` 和 `stylus-loader`，因为 VuePress 已经内置了它们。
   
-For pre-processors that do not have built-in webpack config support, you will need to [extend the internal webpack config](../config/README.md#configurewebpack) in addition to installing the necessary dependencies.
+对于那些没有内置的预处理器，除了安装对应的依赖，你还需要 [拓展内部的 Webpack 配置](../config/README.md#configurewebpack)。
 :::
 
-## Script & Style Hoisting
 
-Sometimes you may need to apply some JavaScript or CSS only to the current page. In those cases you can directly write root-level `<script>` or `<style>` blocks in the markdown file, and they will be hoisted out of the compiled HTML and used as the `<script>` and `<style>` blocks for the resulting Vue single-file component.
+## 脚本和样式提升
+
+有时，你可以只想在当前页面应用一些 JavaScript 或者 CSS，在这种情况下，你可以直接在 Markdown 文件中使用原生的 `<script>` 或者 `<style>` 标签，它们将会从编译后的 HTML 文件中提取出来，并作为生成的 Vue 单文件组件的 `<script>` 和 `<style>` 标签。
 
 <p class="demo" :class="$style.example"></p>
 
@@ -187,20 +187,20 @@ Sometimes you may need to apply some JavaScript or CSS only to the current page.
 export default {
   mounted () {
     document.querySelector(`.${this.$style.example}`)
-      .textContent = 'This is rendered by inline script and styled by inline CSS'
+      .textContent = '这个块是被内联的脚本渲染的，样式也采用了内联样式。'
   }
 }
 </script>
 
-## Built-In Components
+## 内置的组件
 
 ### OutboundLink <Badge text="stable"/>
 
-It(<OutboundLink/>) is used to indicate that this is an external link. In VuePress this component have been followed by every external link.
+(<OutboundLink/>) 用来表明当前是一个外部链接。在 VuePress 中这个组件会紧跟在每一个外部链接后面。
 
 ### ClientOnly <Badge text="stable"/>
 
-See [Browser API Access Restrictions](#browser-api-access-restrictions).
+参考 [浏览器的 API 访问限制](#浏览器的-api-访问限制)。
 
 ### Content <Badge text="beta" type="warn"/>
 
@@ -208,17 +208,18 @@ See [Browser API Access Restrictions](#browser-api-access-restrictions).
 
   - `custom` - boolean
 
-- **Usage**：   
-   
-The compiled content of the current `.md` file being rendered. This will be very useful when you use [Custom Layout](../default-theme-config/README.md#custom-layout-for-specific-pages).
+- **用法**：   
+  
 
+当前的 `.md` 文件渲染的内容，当你在使用 [自定义布局](../default-theme-config/README.md#特定页面的自定义布局) 时，它将非常有用。
+   
 ``` vue
 <Content/>
 ```
 
-**Also see:** 
+**参考:** 
 
-- [Custom Themes > Content Outlet](./custom-themes.md#content-outlet)
+- [自定义主题 > 获取渲染内容](./custom-themes.md#获取渲染内容)
 
   
 ### Badge <Badge text="beta" type="warn"/> <Badge text="0.10.1+"/>
@@ -226,17 +227,17 @@ The compiled content of the current `.md` file being rendered. This will be very
 - **Props**:
 
    - `text` - string
-   - `type` - string, optional value: `"tip"|"warn"|"error"`, defaults to `"tip"`.
-   - `vertical` - string, optional value: `"top"|"middle"`, defaults to `"top"`.
+   - `type` - string, 可选值： `"tip"|"warn"|"error"`，默认值是： `"tip"`
+   - `vertical` - string, 可选值： `"top"|"middle"`，默认值是： `"top"`
 
 - **Usage**:
 
-You can use this component in header to add some status for some API:
+你可以在标题中，使用这个组件来为某些 API 添加一些状态：
    
 ``` md
 ### Badge <Badge text="beta" type="warn"/> <Badge text="0.10.1+"/>
-```   
+```  
 
-**Also see:** 
+**参考:** 
 
-- [Using Components In Headers](#using-components-in-headers)
+- [在标题中使用组件](#在标题中使用组件)

@@ -1,10 +1,10 @@
-# Deploying
+# 部署
 
-The following guides are based on a few shared assumptions:
+下述的指南基于以下条件：
 
-- You are placing your docs inside the `docs` directory of your project;
-- You are using the default build output location (`.vuepress/dist`);
-- VuePress is installed as a local dependency in your project, and you have setup the following npm scripts:
+- 文档放置在项目的 `docs` 目录中；
+- 使用的是默认的构建输出位置；
+- VuePress 以本地依赖的形式被安装到你的项目中，并且配置了如下的 npm scripts:
 
 ``` json
 {
@@ -16,91 +16,89 @@ The following guides are based on a few shared assumptions:
 
 ## GitHub Pages
 
-1. Set correct `base` in `docs/.vuepress/config.js`.
+1. 在 `docs/.vuepress/config.js` 中设置正确的 `base`。
 
-   If you are deploying to `https://<USERNAME>.github.io/`, you can omit `base` as it defaults to `"/"`.
+   如果你打算发布到 `https://<USERNAME>.github.io/`，则可以省略这一步，因为 `base` 默认即是 `"/"`。
 
-   If you are deploying to `https://<USERNAME>.github.io/<REPO>/`, (i.e. your repository is at `https://github.com/<USERNAME>/<REPO>`), set `base` to `"/<REPO>/"`.
+   如果你打算发布到 `https://<USERNAME>.github.io/<REPO>/`（也就是说你的仓库在 `https://github.com/<USERNAME>/<REPO>`），则将 `base` 设置为 `"/<REPO>/"`。
 
-2. Inside your project, create `deploy.sh` with the following content (with highlighted lines uncommented appropriately) and run it to deploy:
+2. 在你的项目中，创建一个如下的 `deploy.sh` 文件（请自行判断去掉高亮行的注释）:
 
 ``` bash{13,20,23}
 #!/usr/bin/env sh
 
-# abort on errors
+# 确保脚本抛出遇到的错误
 set -e
 
-# build
+# 生成静态文件
 npm run docs:build
 
-# navigate into the build output directory
+# 进入生成的文件夹
 cd docs/.vuepress/dist
 
-# if you are deploying to a custom domain
+# 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
 
 git init
 git add -A
 git commit -m 'deploy'
 
-# if you are deploying to https://<USERNAME>.github.io
+# 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
-# if you are deploying to https://<USERNAME>.github.io/<REPO>
+# 如果发布到 https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 
 cd -
 ```
 
 ::: tip
-You can also run the above script in your CI setup to enable automatic deployment on each push.
+你可以在你的持续集成的设置中，设置在每次 push 代码时自动运行上述脚本。
 :::
 
 ## GitLab Pages and GitLab CI
 
-1. Set correct `base` in `docs/.vuepress/config.js`.
+1. 在 `docs/.vuepress/config.js` 中设置正确的 `base`。
 
-   If you are deploying to `https://<USERNAME or GROUP>.gitlab.io/`, you can omit `base` as it defaults to `"/"`.
-
-   If you are deploying to `https://<USERNAME or GROUP>.gitlab.io/<REPO>/`, (i.e. your repository is at `https://gitlab.com/<USERNAME>/<REPO>`), set `base` to `"/<REPO>/"`.
-
-2. Set `dest` in `.vuepress/config.js` to `public`.
-
-3. Create a file called `.gitlab-ci.yml` in the root of your project with the content below. This will build and deploy your site whenever you make changes to your content.
+   如果你打算发布到 `https://<USERNAME or GROUP>.gitlab.io/`，则可以省略这一步，因为 `base` 默认即是 `"/"`。
+  
+   如果你打算发布到 `https://<USERNAME or GROUP>.gitlab.io/<REPO>/`（也就是说你的仓库在 `https://gitlab.com/<USERNAME>/<REPO>`），则将 `base` 设置为 `"/<REPO>/"`。
+  
+2. 在 `.vuepress/config.js` 中将 `dest` 设置为 `public`。
+3. 在你项目的根目录下创建一个名为 `.gitlab-ci.yml` 的文件，无论何时你提交了更改，它都会帮助你自动构建和部署：
 
 ``` yaml
 image: node:9.11.1
 
 pages:
-  cache:
-    paths:
-    - node_modules/
+ cache:
+   paths:
+   - node_modules/
 
-  script:
-  - npm install
-  - npm run docs:build
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
+ script:
+ - npm install
+ - npm run docs:build
+ artifacts:
+   paths:
+   - public
+ only:
+ - master
 ```
-
 
 ## Netlify
 
-1. On Netlify, setup up a new project from GitHub with the following settings:
+1. 在 Netlify 中, 创建一个新的 Github 项目，使用以下设置：
 
-  - **Build Command:** `npm run docs:build` or `yarn docs:build`
+  - **Build Command:** `npm run build:docs` 或者 `yarn build:docs`
   - **Publish directory:** `docs/.vuepress/dist`
 
-2. Hit the deploy button!
+2. 点击 deploy 按钮！
 
 ## Google Firebase
 
-1. Make sure you have [firebase-tools](https://www.npmjs.com/package/firebase-tools) installed.
+1. 请确保你已经安装了 [firebase-tools](https://www.npmjs.com/package/firebase-tools)。
 
-2. Create `firebase.json` and `.firebaserc` at the root of your project with the following content:
+2. 在你项目的根目录下创建 `firebase.json` 和 `.firebaserc`，并包含以下内容：
 
 `firebase.json`:
 ```json
@@ -113,7 +111,7 @@ pages:
 ```
 
 `.firebaserc`:
-```js
+``` js
 {
  "projects": {
    "default": "<YOUR_FIREBASE_ID>"
@@ -121,62 +119,63 @@ pages:
 }
 ```
 
-3. After running `yarn docs:build` or `npm run docs:build`, deploy with the command `firebase deploy`.
+3. 在执行了 `yarn docs:build` 或 `npm run docs:build` 后, 使用 `firebase deploy` 指令来部署。
 
 ## Surge
 
-1. First install [surge](https://www.npmjs.com/package/surge), if you haven't already.
+1. 首先，假设你已经安装了 [surge](https://www.npmjs.com/package/surge)；
 
-2. Run `yarn docs:build` or `npm run docs:build`.
+2. 运行 `yarn docs:build` 或者 `npm run docs:build`；
 
-3. Deploy to surge, by typing `surge docs/.vuepress/dist`.
+3. 想要使用 surge 来部署，你可以运行： `surge docs/.vuepress/dist`；
 
-You can also deploy to a [custom domain](http://surge.sh/help/adding-a-custom-domain) by adding `surge docs/.vuepress/dist yourdomain.com`.
+你也可以通过 `surge docs/.vuepress/dist yourdomain.com` 来部署到 [自定义域名](http://surge.sh/help/adding-a-custom-domain)。
+
 
 ## Heroku
 
-1. First install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
+1. 首先安装 [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)；
 
-2. Create a Heroku account [here](https://signup.heroku.com).
+2. [在这里](https://signup.heroku.com) 注册一个 Heroku 账号；
 
-3. Run `heroku login` and fill in your Heroku credentials:
-  
+3. 运行 `heroku login` 并填写你的 Heroku 证书：
+
  ``` bash
  heroku login
  ```
 
-4. Create a file called `static.json` in the root of your project with the content below:
+4. 在你的项目根目录中，创建一个名为 `static.json` 的文件，并包含下述内容：
 
- `static.json`:
- ```json
- {
-   "root": "./docs/.vuepress/dist"
- }
- ```
+`static.json`:
+```json
+{
+"root": "./docs/.vuepress/dist"
+}
+```
 
-This is the configuration of your site. see more at [heroku-buildpack-static](https://github.com/heroku/heroku-buildpack-static).
-
-5. Set up your Heroku git remote:
+这里是你项目的配置，请参考 [heroku-buildpack-static](https://github.com/heroku/heroku-buildpack-static) 了解更多。
+    
+5. 配置 Heroku 的 git 远程仓库：
 
 ``` bash
-# version change
+# 版本变化
 git init
 git add .
 git commit -m "My site ready for deployment."
 
-# creates a new app with a specified name
+# 以指定的名称创建一个新的 heroku 应用
 heroku apps:create example
 
-# set buildpack for static sites
+# 为静态网站设置构建包
 heroku buildpacks:set https://github.com/heroku/heroku-buildpack-static.git
 ```
-
-6. Deploying Your Site
-
+  
+6. 部署你的网站：
+  
 ``` bash
-# publish site
+# 发布网站
 git push heroku master
 
-# opens a browser to view the Dashboard version of Heroku CI
+# 打开浏览器查看 Helku CI 的 dashboard
 heroku open
 ```

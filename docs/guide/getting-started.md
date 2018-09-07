@@ -1,66 +1,22 @@
-# Getting Started
+# 开发环境
 
-::: warning COMPATIBILITY NOTE
-VuePress requires Node.js >= 8.
-:::
+## Node
 
-## Global Installation
+[Nodejs](https://nodejs.org/zh-cn/) 8.0+
 
-If you just want to play around with VuePress, you can install it globally:
+## AndroidStudio(仅限Android)
 
-``` bash
-# install globally
-yarn global add vuepress # OR npm install -g vuepress
+[AndroidStudio](https://developer.android.com/studio/) 3.0+
 
-# create a markdown file
-echo '# Hello VuePress' > README.md
+## Xcode(仅限iOS)
 
-# start writing
-vuepress dev
+[Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) 9.0+
 
-# build
-vuepress build
-```
+## CocoaPods(仅限iOS)
 
-## Inside an Existing Project
-
-If you have an existing project and would like to keep documentation inside the project, you should install VuePress as a local dependency. This setup also allows you to use CI or services like Netlify for automatic deployment on push.
+[CocoaPods](https://cocoapods.org/) 1.5.0+
 
 ``` bash
-# install as a local dependency
-yarn add -D vuepress # OR npm install -D vuepress
-
-# create a docs directory
-mkdir docs
-# create a markdown file
-echo '# Hello VuePress' > docs/README.md
+# 安装
+npm i -g weex-toolkit
 ```
-
-::: warning
-It is currently recommended to use [Yarn](https://yarnpkg.com/en/) instead of npm when installing VuePress into an existing project that has webpack 3.x as a dependency. Npm fails to generate the correct dependency tree in this case.
-:::
-
-Then, add some scripts to `package.json`:
-
-``` json
-{
-  "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
-  }
-}
-```
-
-You can now start writing with:
-
-``` bash
-yarn docs:dev # OR npm run docs:dev
-```
-
-To generate static assets, run:
-
-``` bash
-yarn docs:build # Or npm run docs:build
-```
-
-By default the built files will be in `.vuepress/dist`, which can be configured via the `dest` field in `.vuepress/config.js`. The built files can be deployed to any static file server. See [Deployment Guide](./deploy.md) for guides on deploying to popular services.
