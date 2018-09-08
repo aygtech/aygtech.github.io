@@ -3,8 +3,8 @@ module.exports = {
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: 'VuePress',
-      description: 'Vue 驱动的静态网站生成器'
+      title: 'WeexBox',
+      description: '一套简洁高效的APP混合开发解决方案'
     }
   },
   head: [
@@ -53,10 +53,10 @@ module.exports = {
             text: '默认主题',
             link: '/default-theme-config/'
           },
-          {
-            text: 'Changelog',
-            link: 'https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md'
-          }
+          // {
+          //   text: 'Changelog',
+          //   link: 'https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md'
+          // }
         ],
         sidebar: {
           '/guide/': genSidebarConfig('指南')
