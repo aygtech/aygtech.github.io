@@ -7,7 +7,7 @@ features:
 - title: 简洁至上
   details: 约定大于配置，以最少的配置帮助你专注于撸码。
 - title: 功能强大
-  details: 提供大量扩展，弥补weexSDK的不足。
+  details: 提供大量扩展，弥补weex本身的不足。
 - title: 性能高效
   details: 优化weexDemo代码，js打包、页面加载更高效。
 footer: MIT Licensed | Copyright © 2018-present Mario

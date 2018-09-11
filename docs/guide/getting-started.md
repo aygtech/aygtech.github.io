@@ -16,7 +16,19 @@
 
 [CocoaPods](https://cocoapods.org/) 1.5.0+
 
+## weex脚手架工具
 ``` bash
 # 安装
 npm i -g weex-toolkit
+```
+
+## weexbox脚手架工具
+``` bash
+# 安装
+npm install -g weexbox
+
+# 新建一个weex工程
+weexbox create
+
+# 开始撸码
 ```
