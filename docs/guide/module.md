@@ -2,7 +2,7 @@
 
 ## callback 参数的数据格式
 
-```js
+```vue
 {
   // 状态码。0表示操作成功，-1表示操作失败
   status: 0,
@@ -19,7 +19,7 @@
 
 ### 引用方式
 
-```js
+```vue
 const router = weex.requireModule('wb-router')
 ```
 
@@ -29,7 +29,7 @@ const router = weex.requireModule('wb-router')
 
 open(object)
 
-```js
+```vue
 router.open({
   // 页面名称。内置"weex"、"web"，其他路由需要原生先注册
   name: 'weex'
@@ -52,7 +52,7 @@ router.open({
 
 getParams()
 
-```js
+```vue
 const params = router.getParams()
 ```
 
@@ -60,7 +60,7 @@ const params = router.getParams()
 
 close(number)
 
-```js
+```vue
 // 关闭顶层多个页面，默认1个
 router.close(1)
 ```
@@ -69,7 +69,7 @@ router.close(1)
 
 refresh()
 
-```js
+```vue
 router.refresh()
 ```
 
@@ -79,7 +79,7 @@ router.refresh()
 
 ### 引用方式
 
-```js
+```vue
 const network = weex.requireModule('wb-network')
 ```
 
@@ -89,7 +89,7 @@ const network = weex.requireModule('wb-network')
 
 request(object, callback)
 
-```js
+```vue
 network.request({
   // 请求的URL
   url: 'https://weexbox.com/api',
@@ -119,7 +119,7 @@ result: {
 
 upload(object, completionCallback, progressCallback)
 
-```js
+```vue
 network.upload({
   // 请求的URL
   url: 'https://weexbox.com/api'
@@ -160,7 +160,7 @@ wb-event 不区分原生还是 weex，也不区分是同一个页面还是多个
 
 ### 引用方式
 
-```js
+```vue
 const event = weex.requireModule('wb-event')
 ```
 
@@ -170,7 +170,7 @@ const event = weex.requireModule('wb-event')
 
 register(string, callback)
 
-```js
+```vue
 event.register('name', (result) => {
 
 })
@@ -188,11 +188,11 @@ event.register('name', (result) => {
 
 emit(object)
 
-```js
+```vue
 event.emit({
   // 事件名称
   name: 'eventName',
-  // 事件参数，可为空
+  // 事件参数，默认为空
   params: {}
 })
 ```
@@ -201,7 +201,7 @@ event.emit({
 
 unregister(string)
 
-```js
+```vue
 event.unregister('name')
 ```
 
@@ -209,7 +209,7 @@ event.unregister('name')
 
 unregisterAll()
 
-```js
+```vue
 event.unregisterAll()
 ```
 
@@ -226,7 +226,7 @@ event.unregisterAll()
 
 ### 引用方式
 
-```js
+```vue
 const location = weex.requireModule('wb-location')
 ```
 
@@ -236,7 +236,7 @@ const location = weex.requireModule('wb-location')
 
 getLocation(callback)
 
-```js
+```vue
 location.getLocation((result) => {
 
 })
@@ -260,7 +260,7 @@ result: {
 
 ### 引用方式
 
-```js
+```vue
 const modal = weex.requireModule('wb-modal')
 ```
 
@@ -270,7 +270,7 @@ const modal = weex.requireModule('wb-modal')
 
 alert(object, callback)
 
-```js
+```vue
 modal.alert({
   // 标题
   title: '标题',
@@ -292,7 +292,7 @@ result: {
 
 confirm(options, callback)
 
-```js
+```vue
 modal.confirm({
   // 标题
   title: '标题',
@@ -317,7 +317,7 @@ result: {
 
 prompt(object, callback)
 
-```js
+```vue
 modal.prompt({
   // 标题
   title: '标题',
@@ -350,19 +350,19 @@ result: {
 
 actionSheet(object, callback)
 
-```js
+```vue
 modal.actionSheet({
-  actions: [
-    // 标题
-    title: '标题',
-    // 弹窗内容  
-    message: '弹窗内容',
-    // action列表
-    actions: [{
+  // 标题，默认为空
+  title: '标题',
+  // 弹窗内容，默认为空
+  message: '弹窗内容',
+  // action列表
+  actions: [{
     // 按钮类型'danger', 'cancel', 'normal'。默认normal
     type: 'danger',
     // 按钮的标题
-    title: '删除']
+    title: '删除'
+  }]
 }, (result) => {
 
 })
@@ -382,7 +382,7 @@ result: {
 
 showToast(object)
 
-```js
+```vue
 modal.showToast({
   // 提示信息
   text: '提示信息',
@@ -395,8 +395,8 @@ modal.showToast({
 
 showLoading(string)
 
-```js
-// loading 文字，可为空
+```vue
+// loading 文字，默认为空
 modal.showLoading('加载中...')
 ```
 
@@ -404,11 +404,11 @@ modal.showLoading('加载中...')
 
 showProgress(object)
 
-```js
+```vue
 modal.showProgress({
   // 进度
   progress: 50
-  // loading 文字，可为空
+  // loading 文字，默认为空
   text: '加载中...'
 })
 ```
@@ -417,17 +417,17 @@ modal.showProgress({
 
 dismiss()
 
-```js
+```vue
 modal.dismiss()
 ```
 
-# wb-navigator
+## wb-navigator
 
 设置原生导航栏
 
 ### 引用方式
 
-```js
+```vue
 const navigator = weex.requireModule('wb-navigator')
 ```
 
@@ -437,7 +437,7 @@ const navigator = weex.requireModule('wb-navigator')
 
 disableGestureBack(Boolean)
 
-```js
+```vue
 // 禁用
 navigator.disableGestureBack(true)
 ```
@@ -446,7 +446,7 @@ navigator.disableGestureBack(true)
 
 setLeftItems(array, callback)
 
-```js
+```vue
 navigator.setLeftItems([
   {
     // 展示的文字
@@ -474,8 +474,8 @@ result: {
 
 setRightItems(array, callback)
 
-```js
-navigator.setLeftItems([
+```vue
+navigator.setRightItems([
   {
     // 展示的文字
     text: '',
@@ -502,7 +502,7 @@ result: {
 
 setCenterItem(object, callback)
 
-```js
+```vue
 navigator.setCenterItem({
   // 展示的文字
   text: '',
@@ -526,7 +526,7 @@ result: {
 
 ### 引用方式
 
-```js
+```vue
 const external = weex.requireModule('wb-external')
 ```
 
@@ -536,7 +536,7 @@ const external = weex.requireModule('wb-external')
 
 openBrowser(string)
 
-```js
+```vue
 external.openBrowser('https://weexbox.surge.sh/')
 ```
 
@@ -544,7 +544,7 @@ external.openBrowser('https://weexbox.surge.sh/')
 
 callPhone(string, callback)
 
-```js
+```vue
 external.callPhone('110', (result) => {
 
 })
@@ -560,7 +560,7 @@ result: {
 
 openCamera(callback)
 
-```js
+```vue
 external.openCamera((result) => {
 
 })
@@ -580,7 +580,7 @@ result: {
 
 openPhoto(object, callback)
 
-```js
+```vue
 external.openPhoto({
   // 最大选取张数
   count: 9
