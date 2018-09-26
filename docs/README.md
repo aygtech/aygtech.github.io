@@ -17,13 +17,24 @@ footer: MIT Licensed | Copyright © 2018-present Mario
 
 ``` bash
 # 安装
-npm install -g weexbox
+cnpm i -g @weexbox/cli
 
 # 新建一个weex工程
-weexbox create
+weexbox create projectName
 
-# 开始撸码
+# 进入工程
+cd projectName
+
+# 安装依赖
+cnpm i
+
+# 开始写bug
 ```
+
+::: tip
+如果使用npm安装@weexbox，请先科学上网。
+推荐使用[cnpm](https://npm.taobao.org/)
+:::
 
 ::: warning 注意
 请确保你的 Node.js 版本 >= 8。
