@@ -40,7 +40,13 @@ router.open({
   // 是否隐藏导航栏, 默认false
   navBarHidden: false,
   // 需要传到下一个页面的数据，默认为空
-  params: {}
+  params: {},
+  // 指定从堆栈的哪个页面开始关闭，不传是不会关闭的
+  closeFrom: 1
+  // 关闭页面的方向，默认和堆栈方向一致
+  closeFromLeftToRight: true
+  // 关闭页面的个数。如果传了closeFrom但没有传closeCount，分两种情况：closeFromLeftToRight为true时关闭到当前页面（当前页面也会关闭），closeFromLeftToRight为false时关闭到根页面（根页面不关闭）
+  closeCount: 1
 })
 ```
 
@@ -94,13 +100,15 @@ network.request({
   // 请求的URL
   url: 'https://weexbox.com/api',
   // 请求时使用的方法，默认是 get
-  method: 'get',
+  method: 'post',
   // 请求头
-  headers: {'X-Requested-With': 'XMLHttpRequest'},
+  headers: {'Content-Type': 'application/json'},
   // 发送的 URL/Body 参数
   params: {
     ID: 12345
-  }
+  },
+  // 响应类型, json 或 text，默认 text
+  responseType: 'json'
 }, (result) => {
 
 })
@@ -217,8 +225,8 @@ event.unregisterAll()
 
 扩展了全局事件，新增
 
-- viewappear  页面显示的时候触发
-- viewdisappear 页面隐藏的时候触发
+- viewDidAppear 页面显示的时候触发
+- viewDidDisappear 页面隐藏的时候触发
 
 ## wb-location
 
@@ -558,10 +566,19 @@ result: {
 
 - 拍照:
 
-openCamera(callback)
+openCamera(object, callback)
 
 ```vue
-external.openCamera((result) => {
+external.openCamera({
+  // 能否剪裁
+  enableCrop: true,
+  // 是否矩形剪裁，true为圆形剪裁
+  isCircle: true,
+  // 宽度
+  width: 100,
+  // 高度
+  height:100
+}, (result) => {
 
 })
 
@@ -583,7 +600,15 @@ openPhoto(object, callback)
 ```vue
 external.openPhoto({
   // 最大选取张数
-  count: 9
+  count: 9,
+  // 能否剪裁
+  enableCrop: true,
+  // 是否矩形剪裁，true为圆形剪裁
+  isCircle: true,
+  // 宽度
+  width: 100,
+  // 高度
+  height:100
 }, (result) => {
 
 })
