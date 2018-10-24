@@ -45,7 +45,9 @@ router.open({
   closeFrom: 1
   // 关闭页面的方向，默认和堆栈方向一致
   closeFromLeftToRight: true
-  // 关闭页面的个数。如果传了closeFrom但没有传closeCount，分两种情况：closeFromLeftToRight为true时关闭到当前页面（当前页面也会关闭），closeFromLeftToRight为false时关闭到根页面（根页面不关闭）
+  // 关闭页面的个数。如果传了closeFrom但没有传closeCount，分两种情况：
+  // closeFromLeftToRight为true时关闭到当前页面（当前页面也会关闭）
+  // closeFromLeftToRight为false时关闭到根页面（根页面不关闭）
   closeCount: 1
 })
 ```
