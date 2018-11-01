@@ -44,10 +44,10 @@ router.open({
   // 指定从堆栈的哪个页面开始关闭，不传是不会关闭的
   closeFrom: 1
   // 关闭页面的方向，默认和堆栈方向一致
-  closeFromLeftToRight: true
+  closeFromBottomToTop: true
   // 关闭页面的个数。如果传了closeFrom但没有传closeCount，分两种情况：
-  // closeFromLeftToRight为true时关闭到当前页面（当前页面也会关闭）
-  // closeFromLeftToRight为false时关闭到根页面（根页面不关闭）
+  // closeFromBottomToTop为true时关闭到当前页面（当前页面也会关闭）
+  // closeFromBottomToTop为false时关闭到根页面（根页面不关闭）
   closeCount: 1
 })
 ```
@@ -396,8 +396,8 @@ showToast(object)
 modal.showToast({
   // 提示信息
   text: '提示信息',
-  // 显示时间，默认3秒
-  duration: 3
+  // 显示时间，默认2秒
+  duration: 2
 })
 ```
 
