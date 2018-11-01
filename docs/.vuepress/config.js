@@ -74,6 +74,7 @@ function genSidebarConfig (title) {
       children: [
         '',
         'getting-started',
+        'class-config',
         'basic-config',
         'assets',
         'module',

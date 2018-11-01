@@ -530,6 +530,23 @@ result: {
 }
 ```
 
+- 导航栏颜色
+
+setNavColor(string)
+
+```vue
+navigator.setNavColor('00ff00')
+```
+
+- 物理返回键
+
+onBackPressed(callback)
+
+```vue
+navigator.onBackPressed(() => {
+})
+```
+
 ## wb-external
 
 打开外部功能
