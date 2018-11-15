@@ -182,16 +182,8 @@ register(string, callback)
 
 ```vue
 event.register('name', (result) => {
-
+  // result为传过来的参数
 })
-
-// callback参数
-{
-  status: 0,
-  error: '',
-  // 触发该事件所传的参数
-  data: {}
-}
 ```
 
 - 发送事件
