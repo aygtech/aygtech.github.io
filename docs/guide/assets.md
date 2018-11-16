@@ -1,29 +1,6 @@
 # 静态资源
 
-## 热更新
 
-```swift
-import WeexBox
-
-// 配置热更新地址
-UpdateManager.setServer(url: hotdeployUrl)
-
-// 是否需要强制更新
-UpdateManager.forceUpdate = true
-
-// 执行热更新
-UpdateManager.update { (state, progress, error, url) in
-    switch state {
-    case .Unzip:
-        // 解压
-    case .DownloadFile:
-        // 下载
-    case .UpdateSuccess:
-        // 更新成功，可以进入APP
-        // 如果开启了强制更新，会等到下载完成才会进入这里。否则就是静默更新，解压成功就会进入
-    }
-}
-```
 
 ## 热更新
 
