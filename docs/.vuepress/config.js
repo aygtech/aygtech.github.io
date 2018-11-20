@@ -20,14 +20,14 @@ module.exports = {
   ],
   serviceWorker: true,
   themeConfig: {
-    repo: 'vuejs/vuepress',
+    repo: 'aygtech/weexbox-document',
     editLinks: true,
     docsDir: 'docs',
     // #697 Provided by the official algolia team.
-    algolia: {
-      apiKey: '3a539aab83105f01761a137c61004d85',
-      indexName: 'vuepress'
-    },
+    // algolia: {
+    //   apiKey: '3a539aab83105f01761a137c61004d85',
+    //   indexName: 'vuepress'
+    // },
     locales: {
       '/': {
         label: '简体中文',
@@ -45,14 +45,14 @@ module.exports = {
             text: '指南',
             link: '/guide/',
           },
-          {
-            text: '配置',
-            link: '/config/'
-          },
-          {
-            text: '默认主题',
-            link: '/default-theme-config/'
-          },
+          // {
+          //   text: '配置',
+          //   link: '/config/'
+          // },
+          // {
+          //   text: '默认主题',
+          //   link: '/default-theme-config/'
+          // },
           // {
           //   text: 'Changelog',
           //   link: 'https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md'
