@@ -74,14 +74,11 @@ function genSidebarConfig (title) {
       children: [
         '',
         'getting-started',
-        'class-config',
-        'basic-config',
+        'project',
+        'native-ios',
+        'native-android',
         'assets',
-        'module',
-        'using-vue',
-        'custom-themes',
-        'i18n',
-        'deploy'
+        'module'
       ]
     }
   ]

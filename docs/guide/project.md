@@ -1,5 +1,6 @@
 # 项目结构
 
+```
 .
 ├── config                  // 配置文件夹
 │   ├── update-config.json  // 热更新的配置文件
@@ -14,3 +15,4 @@
 │           ├── App.vue     // vue源码
 │           └── index.js    // 入口文件
 └── static                  // 图片资源文件夹
+```
