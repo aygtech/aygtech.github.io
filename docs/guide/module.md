@@ -456,7 +456,7 @@ navigator.setLeftItems([
     // 文字颜色，16进制
     color: 'ffffff',
     // 展示的图片。如果设置了text，则image不起作用
-    image: 'http://weexbox.surge.sh/hero.png' 
+    image: 'http://weexbox.surge.sh/logo.png' 
   }
 ], (result) => {
 
@@ -484,7 +484,7 @@ navigator.setRightItems([
     // 文字颜色，16进制
     color: 'ffffff',
     // 展示的图片。如果设置了text，则image不起作用
-    image: 'http://weexbox.surge.sh/hero.png' 
+    image: 'http://weexbox.surge.sh/logo.png' 
   }
 ], (result) => {
 
@@ -511,7 +511,7 @@ navigator.setCenterItem({
   // 文字颜色，16进制
   color: 'ffffff',
   // 展示的图片。如果设置了text，则image不起作用
-  image: 'http://weexbox.surge.sh/hero.png' 
+  image: 'http://weexbox.surge.sh/logo.png' 
 }, (result) => {
 
 })
