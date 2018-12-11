@@ -1,6 +1,6 @@
 # Android 集成 WeexBox
 
-即使项目是用 @weexbox/cli 生成的，我依旧建议你了解一下这个过程。
+即使项目是用 @weexbox/cli 生成的，我依旧建议你了解一下这个过程。以下示例中原生代码均为kotlin编写，java使用者可以自己使用java语言，用法依旧一样
 
 ## 初始化
 
@@ -28,8 +28,8 @@ override fun onCreate() {
 
 ## 事件通知
 
-WeexBox 提供了原生与weex互相通知的能力(你甚至可以用作原生之间的通知)。  
-通过 Event 类，你可以：
+WeexBox 提供了原生与weex互相通知的能力(你甚至可以用作原生之间的通知，不管是weex界面还是原生界面，只要注册了事件，都能接收到)。  
+####通过 Event 类，你可以在weex发送事件与注册事件：
 
 ```kotlin
 // 注册事件
@@ -44,7 +44,24 @@ Event.unregister()
 // 注销所有事件
 Event.unregisterAll()
 ```
+####在原生发送事件与注册事件：
+```kotlin
+// 注册事件
+Event.register(this,"YourEventName") { //this为Activity或者Fragment
+    //var value = it!!["key"]  it为发送事件传过来的Map<String,Any>，可不传
+}
 
+// 发送事件
+Map<String, Object> map = new HashMap<>()
+map.put("key", Object)
+Event.emit("YourEventName", map)//map可为null
+
+// 注销事件
+Event.unregister(this, "YourEventName") //this为Activity或者Fragment
+
+// 注销所有事件
+Event.unregisterAll(this)
+```
 ## 网络
 
 Network 类封装了Retrofit。原生和weex的网络请求都会走这里。
@@ -79,11 +96,30 @@ UpdateManager.update { state, progress, error, url ->
         UpdateManager.UpdateState.UpdateSuccess -> {
             // 更新成功，可以进入APP
             // 如果开启了强制更新，会等到下载完成才会进入这里。否则就是静默更新，解压成功就会进入
+        ... // 还有各种状态码，参见下面表格，可以处理热更新各种情况，如热更新失败提示用户重启
         }
     }
 }
 ```
+####执行热更新完整状态码
 
+状态码|描述|
+--|:--:|
+Unzip|解压文件|
+UnzipError|解压文件出错|
+UnzipSuccess|解压文件成功|
+GetServer|获取服务器路径|
+GetServerError|获取服务器路径出错|
+DownloadConfig|下载配置文件|
+DownloadConfigError|下载配置文件出错|
+DownloadConfigSuccess|下载配置文件成功|
+DownloadMd5|下载md5文件|
+DownloadMd5Error|下载Md5出错|
+DownloadMd5Success|下载md5文件成功|
+DownloadFile|下载文件|
+DownloadFileError|下载文件出错|
+DownloadFileSuccess|下载文件成功|
+UpdateSuccess|更新成功|
 :::tip
 可以根据环境来选择更新模式。比如  
 开发和测试使用强制更新，保证app启动即使最新代码。  
