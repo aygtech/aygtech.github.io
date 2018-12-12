@@ -7,7 +7,7 @@
 
 - dist目录
 
-dist目录用于发布热更新包。可以把它拷贝到nignx上，并把该地址作为hotdeployUrl。
+dist目录用于发布热更新包。可以把它拷贝到nginx上，并把该地址作为hotdeployUrl。
 
 - weex-update目录
 
