@@ -32,8 +32,7 @@ cnpm i
 ```
 
 ::: tip
-如果使用npm安装@weexbox，请先科学上网。
-推荐使用[cnpm](https://npm.taobao.org/)
+请务必使用[cnpm](https://npm.taobao.org/)安装@weexbox
 :::
 
 ::: warning 注意

@@ -7,7 +7,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "publish": "npm run docs:build && surge vuepress https://weexbox.surge.sh"
+    "publish": "cnpm run docs:build && surge vuepress https://weexbox.surge.sh"
   },
   "keywords": [
     "weex",
