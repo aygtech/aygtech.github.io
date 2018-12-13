@@ -21,7 +21,7 @@ func application(_ application: UIApplication,
     window?.backgroundColor = .white
         
     // 使用 WBNavigationController 作为导航基类
-    window?.rootViewController = WBNavigationController(rootViewController: WBViewController())
+    window?.rootViewController = WBNavigationController(rootViewController: WBBaseViewController())
         
     window?.makeKeyAndVisible()
         

@@ -5,9 +5,9 @@
 上面讲了原生如何设置热更新地址，这里介绍前端如何打热更新包。  
 @weexbox/builder的任何构建命令都会生成两个包。
 
-- dist目录
+- deploy目录
 
-dist目录用于发布热更新包。可以把它拷贝到nignx上，并把该地址作为hotdeployUrl。
+deploy目录用于发布热更新包。可以把它拷贝到nignx上，并把该地址作为hotdeployUrl。
 
 - weex-update目录
 

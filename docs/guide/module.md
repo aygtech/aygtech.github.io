@@ -104,12 +104,12 @@ network.request({
   // 请求时使用的方法，默认是 get
   method: 'post',
   // 请求头
-  headers: {'Content-Type': 'application/json'},
+  headers: {'X-Requested-With': 'XMLHttpRequest'},
   // 发送的 URL/Body 参数
   params: {
     ID: 12345
   },
-  // 响应类型, json 或 text，默认 text
+  // 响应类型, json 或 text，默认 json
   responseType: 'json'
 }, (result) => {
 
@@ -124,6 +124,10 @@ result: {
   data: {}
 }
 ```
+
+:::warning
+网络请求仅支持`application/json`，我们认为这是最佳实践。
+:::
 
 - 文件上传
 
