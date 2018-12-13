@@ -28,8 +28,9 @@ override fun onCreate() {
 
 ## 事件通知
 
-WeexBox 提供了原生与weex互相通知的能力(你甚至可以用作原生之间的通知，不管是weex界面还是原生界面，只要注册了事件，都能接收到)。  
-####通过 Event 类，你可以在weex发送事件与注册事件：
+WeexBox 提供了原生与weex互相通知的能力(你甚至可以用作原生之间的通知，不管是weex界面还是原生界面，只要注册了事件，都能接收到)。
+
+#### 通过 Event 类，你可以在weex发送事件与注册事件：
 
 ```kotlin
 // 注册事件
@@ -44,7 +45,8 @@ Event.unregister()
 // 注销所有事件
 Event.unregisterAll()
 ```
-####在原生发送事件与注册事件：
+
+#### 在原生发送事件与注册事件：
 ```kotlin
 // 注册事件
 Event.register(this,"YourEventName") { //this为Activity或者Fragment
@@ -101,7 +103,7 @@ UpdateManager.update { state, progress, error, url ->
     }
 }
 ```
-####执行热更新完整状态码
+#### 执行热更新完整状态码
 
 状态码|描述|
 --|:--:|
