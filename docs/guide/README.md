@@ -28,8 +28,6 @@ weex的重心放在了js渲染UI的能力上，对原生的扩展并不多。
 
 @weexbox/cli 帮助你快速初始化工程项目。
 
-- 编译
-
 ```sh
 # 安装
 cnpm i -g @weexbox/cli
