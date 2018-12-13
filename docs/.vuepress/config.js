@@ -78,7 +78,8 @@ function genSidebarConfig (title) {
         'native-ios',
         'native-android',
         'assets',
-        'module'
+        'module',
+        'debug'
       ]
     }
   ]
