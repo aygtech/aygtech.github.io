@@ -7,7 +7,7 @@
 ## 调试已经打包进真机的JSbundle
 
 ```bash
-cnpm run debug
+npm run debug
 ```
 ![file-list](../.vuepress/public/debug1.png)
 
@@ -20,7 +20,7 @@ cnpm run debug
 ## 调试正在开发的页面
 
 ```bash
-cnpm run debug [vue/weex页面的路径]
+npm run debug [vue/weex页面的路径]
 ```
 - 2.1 也是需要使pc与移动终端建立连接，步骤与1.1一致
 

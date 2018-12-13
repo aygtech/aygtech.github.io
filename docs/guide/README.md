@@ -53,13 +53,13 @@ cnpm i
 - 调试app里的weex页面
 
 ```sh
-cnpm run debug
+npm run debug
 ```
 
 - 从源码调试页面，并且支持热刷新
 
 ```sh
-cnpm run debug xxx/App.vue
+npm run debug xxx/App.vue
 ```
 
 ## @weexbox/builder
@@ -70,14 +70,14 @@ cnpm run debug xxx/App.vue
 
 ```sh
 # 开发环境
-cnpm run develop
+npm run develop
 
 # 测试环境
-cnpm run test
+npm run test
 
 # 准生产环境
-cnpm run preRelease
+npm run preRelease
 
 # 生成环境
-cnpm run release
+npm run release
 ```
