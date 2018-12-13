@@ -2,6 +2,26 @@
 
 即使项目是用 @weexbox/cli 生成的，我依旧建议你了解一下这个过程。
 
+:::tip
+iOS SDK使用Swift开发，并且尽量兼容OC。但由于Swift语言本身的限制，导致OC的VC不能继承swift的VC。一个变通的方法是把Swift VC作为OC VC的subVC来使用。  
+对于有追求的团队而言，强烈建议使用Swift来开发，开发速度和稳健度都会大幅提升！
+:::
+
+## 集成SDK
+
+修改Podfile
+
+```ruby
+source 'https://github.com/cocoapods/specs.git'
+platform :ios, '10.0'
+inhibit_all_warnings!
+use_modular_headers!
+
+target 'WeexBoxExample' do
+    pod 'WeexBox'
+end
+```
+
 ## 初始化
 
 在 AppDelegate.swift 中
@@ -21,7 +41,7 @@ func application(_ application: UIApplication,
     window?.backgroundColor = .white
         
     // 使用 WBNavigationController 作为导航基类
-    window?.rootViewController = WBNavigationController(rootViewController: WBBaseViewController())
+    window?.rootViewController = WBNavigationController(rootViewController: LaunchController())
         
     window?.makeKeyAndVisible()
         
@@ -152,11 +172,11 @@ var router = Router()
 router.name = "你注册路由时的页面名称"
 
 // weex页面
-router.name = Router.weex
+router.name = Router.nameWeex
 router.url = "module/page.js"
 
 // web页面
-router.name = Router.web
+router.name = Router.nameWeb
 router.url = "https://weexbox.surge.sh"
 
 router.open()

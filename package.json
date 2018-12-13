@@ -6,8 +6,7 @@
   "private": true,
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
-    "publish": "cnpm run docs:build && surge vuepress https://weexbox.surge.sh"
+    "publish": "vuepress build docs && surge vuepress https://weexbox.surge.sh"
   },
   "keywords": [
     "weex",

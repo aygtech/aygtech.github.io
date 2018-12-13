@@ -1,6 +1,11 @@
 # Android 集成 WeexBox
 
-即使项目是用 @weexbox/cli 生成的，我依旧建议你了解一下这个过程。以下示例中原生代码均为kotlin编写，java使用者可以自己使用java语言，用法依旧一样
+即使项目是用 @weexbox/cli 生成的，我依旧建议你了解一下这个过程。
+
+:::tip
+Android SDK使用Kotlin开发，并且100%兼容Java。
+对于有追求的团队而言，强烈建议使用Kotlin来开发，开发速度和稳健度都会大幅提升！
+:::
 
 ## 初始化
 
