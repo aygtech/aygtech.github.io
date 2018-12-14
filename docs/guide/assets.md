@@ -34,7 +34,7 @@ weexbox 支持 3 种图片方式
 src 以`http`开头，例如：
 
 ```vue
-<image src="https://weexbox.surge.sh/logo.png"></image>
+<image src="https://aygtech.github.io/weexbox/logo.png"></image>
 ```
 
 :::tip

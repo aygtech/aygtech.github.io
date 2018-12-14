@@ -189,7 +189,7 @@ router.url = "module/page.js"
 
 // web页面
 router.name = Router.web
-router.url = "https://weexbox.surge.sh"
+router.url = "https://aygtech.github.io/weexbox"
 
 router.open()
 ```

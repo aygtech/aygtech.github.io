@@ -1,4 +1,4 @@
-WeexBox使用文档 https://weexbox.surge.sh
+WeexBox 使用文档 https://aygtech.github.io/weexbox
 
 # 介绍
 

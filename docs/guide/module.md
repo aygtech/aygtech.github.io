@@ -560,7 +560,7 @@ const external = weex.requireModule('wb-external')
 openBrowser(string)
 
 ```vue
-external.openBrowser('https://weexbox.surge.sh/')
+external.openBrowser('https://aygtech.github.io/weexbox')
 ```
 
 - 打电话:
