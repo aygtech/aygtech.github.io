@@ -1,12 +1,12 @@
 {
-  "name": "document",
+  "name": "weexbox-document",
   "version": "1.0.0",
-  "description": "document",
+  "description": "weexbox-document",
   "author": "Mario",
   "private": true,
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "publish": "vuepress build docs && surge vuepress https://weexbox.surge.sh"
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
   },
   "keywords": [
     "weex",
@@ -15,6 +15,6 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "vuepress": "^0.14.5"
+    "vuepress": "^0.14.8"
   }
 }
