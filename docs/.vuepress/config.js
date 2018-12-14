@@ -1,5 +1,5 @@
 module.exports = {
-  dest: 'dist',
+  dest: 'weexbox',
   locales: {
     '/': {
       lang: 'zh-CN',
