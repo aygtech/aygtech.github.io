@@ -13,6 +13,18 @@ deploy目录用于发布热更新包。可以把它拷贝到nginx上，并把该
 
 weex-update目录存在app里面，作为内置包随app一起发布。
 
+### 配置热更新的最低版本号
+
+有时候只有特定版本的APP才能更新最新的weex文件，这个时候就要设置`最低版本号`了。
+查看`config/update-config.json`文件，内容如下：
+```json
+{
+  "name": "weexbox", // APP的名字，非必须
+  "ios_min_version": "0.0.0", // iOS最低版本要求，必须
+  "android_min_version": "0.0.0" // Android最低版本要求，必须
+}
+```
+
 ## 图片加载路径
 
 weexbox 支持 3 种图片方式
