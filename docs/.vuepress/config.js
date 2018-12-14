@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/weexbox/',
   dest: 'weexbox',
   locales: {
     '/': {
