@@ -21,7 +21,7 @@ module.exports = {
   ],
   serviceWorker: true,
   themeConfig: {
-    repo: 'aygtech/weexbox-document',
+    repo: 'aygtech/aygtech.github.io',
     editLinks: true,
     docsDir: 'docs',
     // #697 Provided by the official algolia team.
