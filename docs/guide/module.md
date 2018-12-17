@@ -226,40 +226,6 @@ event.unregisterAll()
 - viewDidAppear 页面显示的时候触发
 - viewDidDisappear 页面隐藏的时候触发
 
-## wb-location
-
-获取定位
-
-### 引用方式
-
-```vue
-const location = weex.requireModule('wb-location')
-```
-
-### API
-
-- 获取经纬度
-
-getLocation(callback)
-
-```vue
-location.getLocation((result) => {
-
-})
-
-// callback参数
-result: {
-  status: 0,
-  error: '',
-  data: {
-    // 经度，Double类型
-    longitude: 38.0665411199
-    // 纬度，Double类型
-    latitude: 99.8420333862
-  }
-}
-```
-
 ## wb-modal
 
 各种弹窗
