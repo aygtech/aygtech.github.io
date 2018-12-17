@@ -39,6 +39,8 @@ router.open({
   type: 'push',
   // 是否隐藏导航栏, 默认false
   navBarHidden: false,
+  // 禁用返回手势
+  disableGestureBack = false
   // 需要传到下一个页面的数据，默认为空
   params: {},
   // 指定从堆栈的哪个页面开始关闭，不传是不会关闭的
@@ -404,15 +406,6 @@ const navigator = weex.requireModule('wb-navigator')
 ```
 
 ### API
-
-- 禁用返回手势
-
-disableGestureBack(Boolean)
-
-```vue
-// 禁用
-navigator.disableGestureBack(true)
-```
 
 - 设置导航栏左边按钮
 
