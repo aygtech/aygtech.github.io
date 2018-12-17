@@ -492,7 +492,7 @@ result: {
 }
 ```
 
-- 导航栏颜色
+- 设置导航栏颜色
 
 setNavColor(string)
 
@@ -507,6 +507,14 @@ onBackPressed(callback)
 ```vue
 navigator.onBackPressed(() => {
 })
+```
+
+- 获取导航栏原始高度。多用于隐藏原生导航栏之后，用weex来实现导航栏。
+
+getHeight()
+
+```vue
+const navHeight = navigator.getHeight()
 ```
 
 ## wb-external
