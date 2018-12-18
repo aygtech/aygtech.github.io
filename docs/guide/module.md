@@ -37,10 +37,12 @@ router.open({
   url: 'login.js',
   // 页面出现方式,push或者present。默认是 push
   type: 'push',
-  // 是否隐藏导航栏, 默认false
+  // 是否隐藏导航栏, 默认显示导航栏
   navBarHidden: false,
-  // 禁用返回手势
-  disableGestureBack = false
+  // 导航栏标题
+  title: '标题'
+  // 禁用返回手势, 默认开启返回手势
+  disableGestureBack: false,
   // 需要传到下一个页面的数据，默认为空
   params: {},
   // 指定从堆栈的哪个页面开始关闭，不传是不会关闭的
@@ -417,7 +419,7 @@ navigator.setLeftItems([
     // 展示的文字
     text: '',
     // 文字颜色，16进制
-    color: 'ffffff',
+    color: '#ffffff',
     // 展示的图片。如果设置了text，则image不起作用
     image: 'http://weexbox.surge.sh/logo.png' 
   }
@@ -445,7 +447,7 @@ navigator.setRightItems([
     // 展示的文字
     text: '',
     // 文字颜色，16进制
-    color: 'ffffff',
+    color: '#ffffff',
     // 展示的图片。如果设置了text，则image不起作用
     image: 'http://weexbox.surge.sh/logo.png' 
   }
@@ -472,7 +474,7 @@ navigator.setCenterItem({
   // 展示的文字
   text: '',
   // 文字颜色，16进制
-  color: 'ffffff',
+  color: '#ffffff',
   // 展示的图片。如果设置了text，则image不起作用
   image: 'http://weexbox.surge.sh/logo.png' 
 }, (result) => {
@@ -490,7 +492,7 @@ result: {
 setNavColor(string)
 
 ```vue
-navigator.setNavColor('00ff00')
+navigator.setNavColor('#00ff00')
 ```
 
 - 物理返回键
@@ -532,12 +534,10 @@ external.openBrowser('https://aygtech.github.io/weexbox')
 
 - 打电话:
 
-callPhone(string, callback)
+callPhone(string)
 
 ```vue
-external.callPhone('110', (result) => {
-
-})
+external.callPhone('114')
 
 // callback参数
 result: {
