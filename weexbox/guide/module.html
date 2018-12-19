@@ -15,7 +15,7 @@
   <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
   <meta name="msapplication-TileColor" content="#000000">
     
-    <link rel="preload" href="/weexbox/assets/css/0.styles.159835fe.css" as="style"><link rel="preload" href="/weexbox/assets/js/app.eaa6635b.js" as="script"><link rel="preload" href="/weexbox/assets/js/10.203988aa.js" as="script"><link rel="prefetch" href="/weexbox/assets/js/11.42404ae1.js"><link rel="prefetch" href="/weexbox/assets/js/12.e8a9c64e.js"><link rel="prefetch" href="/weexbox/assets/js/13.4cf81b5a.js"><link rel="prefetch" href="/weexbox/assets/js/14.f2efb5ef.js"><link rel="prefetch" href="/weexbox/assets/js/15.86f4d40d.js"><link rel="prefetch" href="/weexbox/assets/js/2.79907540.js"><link rel="prefetch" href="/weexbox/assets/js/3.05edb05d.js"><link rel="prefetch" href="/weexbox/assets/js/4.2d08dde4.js"><link rel="prefetch" href="/weexbox/assets/js/5.ebc1cd3d.js"><link rel="prefetch" href="/weexbox/assets/js/6.5a6bc04d.js"><link rel="prefetch" href="/weexbox/assets/js/7.166727b1.js"><link rel="prefetch" href="/weexbox/assets/js/8.dabe0502.js"><link rel="prefetch" href="/weexbox/assets/js/9.ff4aa8ff.js">
+    <link rel="preload" href="/weexbox/assets/css/0.styles.159835fe.css" as="style"><link rel="preload" href="/weexbox/assets/js/app.98d97c73.js" as="script"><link rel="preload" href="/weexbox/assets/js/10.92b45331.js" as="script"><link rel="prefetch" href="/weexbox/assets/js/11.42404ae1.js"><link rel="prefetch" href="/weexbox/assets/js/12.e8a9c64e.js"><link rel="prefetch" href="/weexbox/assets/js/13.4cf81b5a.js"><link rel="prefetch" href="/weexbox/assets/js/14.f2efb5ef.js"><link rel="prefetch" href="/weexbox/assets/js/15.86f4d40d.js"><link rel="prefetch" href="/weexbox/assets/js/2.79907540.js"><link rel="prefetch" href="/weexbox/assets/js/3.05edb05d.js"><link rel="prefetch" href="/weexbox/assets/js/4.2d08dde4.js"><link rel="prefetch" href="/weexbox/assets/js/5.ebc1cd3d.js"><link rel="prefetch" href="/weexbox/assets/js/6.5a6bc04d.js"><link rel="prefetch" href="/weexbox/assets/js/7.166727b1.js"><link rel="prefetch" href="/weexbox/assets/js/8.dabe0502.js"><link rel="prefetch" href="/weexbox/assets/js/9.ff4aa8ff.js">
     <link rel="stylesheet" href="/weexbox/assets/css/0.styles.159835fe.css">
   </head>
   <body>
@@ -39,10 +39,12 @@
   url: 'login.js',
   // 页面出现方式,push或者present。默认是 push
   type: 'push',
-  // 是否隐藏导航栏, 默认false
+  // 是否隐藏导航栏, 默认显示导航栏
   navBarHidden: false,
-  // 禁用返回手势
-  disableGestureBack = false
+  // 导航栏标题
+  title: '标题'
+  // 禁用返回手势, 默认开启返回手势
+  disableGestureBack: false,
   // 需要传到下一个页面的数据，默认为空
   params: {},
   // 指定从堆栈的哪个页面开始关闭，不传是不会关闭的
@@ -84,33 +86,7 @@ result: {
   // 服务器返回结果
   data: {}
 }
-</code></pre></div><div class="warning custom-block"><p class="custom-block-title">WARNING</p> <p>网络请求仅支持<code>application/json</code>，我们认为这是最佳实践。</p></div> <ul><li>文件上传</li></ul> <p>upload(object, completionCallback, progressCallback)</p> <div class="language-vue extra-class"><pre class="language-vue"><code>network.upload({
-  // 请求的URL
-  url: 'https://weexbox.com/api'
-  // 本地文件路径数组
-  files: ['/docment/1.png']
-}, (result) =&gt; {
-  // 完成的callback
-}, (result) =&gt; {
-  // 进度的callback
-})
-
-// 完成的callback
-result: {
-  // 状态码
-  status: 200,
-  error: '',
-  // 服务器返回结果
-  data: {}
-}
-
-// 进度的callback
-result: {
-  status: 0,
-  // 进度
-  progress: 50
-}
-</code></pre></div><h2 id="wb-event"><a href="#wb-event" aria-hidden="true" class="header-anchor">#</a> wb-event</h2> <p>应用级别事件通知。相比于实例级别的事件<a href="https://weex.apache.org/cn/references/modules/globalevent.html" target="_blank" rel="noopener noreferrer">globalEvent<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>, wb-event 能够跨页面传递事件。</p> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>globalEvent 虽然里面包含&quot;global&quot;这个词，但它不是真正的全局事件通知。
+</code></pre></div><div class="warning custom-block"><p class="custom-block-title">WARNING</p> <p>网络请求仅支持<code>application/json</code>，我们认为这是最佳实践。</p></div> <h2 id="wb-event"><a href="#wb-event" aria-hidden="true" class="header-anchor">#</a> wb-event</h2> <p>应用级别事件通知。相比于实例级别的事件<a href="https://weex.apache.org/cn/references/modules/globalevent.html" target="_blank" rel="noopener noreferrer">globalEvent<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>, wb-event 能够跨页面传递事件。</p> <div class="tip custom-block"><p class="custom-block-title">TIP</p> <p>globalEvent 虽然里面包含&quot;global&quot;这个词，但它不是真正的全局事件通知。
 globalEvent 只能在当前原生页面和它里面的 weex 通信。
 wb-event 不区分原生还是 weex，也不区分是同一个页面还是多个不同页面。</p></div> <h3 id="引用方式-3"><a href="#引用方式-3" aria-hidden="true" class="header-anchor">#</a> 引用方式</h3> <div class="language-vue extra-class"><pre class="language-vue"><code>const event = weex.requireModule('wb-event')
 </code></pre></div><h3 id="api-3"><a href="#api-3" aria-hidden="true" class="header-anchor">#</a> API</h3> <ul><li>注册事件</li></ul> <p>register(string, callback)</p> <div class="language-vue extra-class"><pre class="language-vue"><code>event.register('name', (result) =&gt; {
@@ -230,7 +206,7 @@ modal.showLoading('加载中...')
     // 展示的文字
     text: '',
     // 文字颜色，16进制
-    color: 'ffffff',
+    color: '#ffffff',
     // 展示的图片。如果设置了text，则image不起作用
     image: 'http://weexbox.surge.sh/logo.png' 
   }
@@ -251,7 +227,7 @@ result: {
     // 展示的文字
     text: '',
     // 文字颜色，16进制
-    color: 'ffffff',
+    color: '#ffffff',
     // 展示的图片。如果设置了text，则image不起作用
     image: 'http://weexbox.surge.sh/logo.png' 
   }
@@ -271,7 +247,7 @@ result: {
   // 展示的文字
   text: '',
   // 文字颜色，16进制
-  color: 'ffffff',
+  color: '#ffffff',
   // 展示的图片。如果设置了text，则image不起作用
   image: 'http://weexbox.surge.sh/logo.png' 
 }, (result) =&gt; {
@@ -282,15 +258,13 @@ result: {
 result: {
   status: 0
 }
-</code></pre></div><ul><li>设置导航栏颜色</li></ul> <p>setNavColor(string)</p> <div class="language-vue extra-class"><pre class="language-vue"><code>navigator.setNavColor('00ff00')
+</code></pre></div><ul><li>设置导航栏颜色</li></ul> <p>setNavColor(string)</p> <div class="language-vue extra-class"><pre class="language-vue"><code>navigator.setNavColor('#00ff00')
 </code></pre></div><ul><li>物理返回键</li></ul> <p>onBackPressed(callback)</p> <div class="language-vue extra-class"><pre class="language-vue"><code>navigator.onBackPressed(() =&gt; {
 })
 </code></pre></div><ul><li>获取导航栏原始高度。多用于隐藏原生导航栏之后，用weex来实现导航栏。</li></ul> <p>getHeight()</p> <div class="language-vue extra-class"><pre class="language-vue"><code>const navHeight = navigator.getHeight()
 </code></pre></div><h2 id="wb-external"><a href="#wb-external" aria-hidden="true" class="header-anchor">#</a> wb-external</h2> <p>打开外部功能</p> <h3 id="引用方式-6"><a href="#引用方式-6" aria-hidden="true" class="header-anchor">#</a> 引用方式</h3> <div class="language-vue extra-class"><pre class="language-vue"><code>const external = weex.requireModule('wb-external')
 </code></pre></div><p><strong>API</strong></p> <ul><li>打开浏览器:</li></ul> <p>openBrowser(string)</p> <div class="language-vue extra-class"><pre class="language-vue"><code>external.openBrowser('https://aygtech.github.io/weexbox')
-</code></pre></div><ul><li>打电话:</li></ul> <p>callPhone(string, callback)</p> <div class="language-vue extra-class"><pre class="language-vue"><code>external.callPhone('110', (result) =&gt; {
-
-})
+</code></pre></div><ul><li>打电话:</li></ul> <p>callPhone(string)</p> <div class="language-vue extra-class"><pre class="language-vue"><code>external.callPhone('114')
 
 // callback参数
 result: {
@@ -343,7 +317,7 @@ result: {
     urls: ['url0', 'url1']
   }
 }
-</code></pre></div></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/aygtech/aygtech.github.io/edit/master/docs/guide/module.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2018-12-17 12:31:02</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/aygtech/aygtech.github.io/edit/master/docs/guide/module.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">2018-12-19 10:20:54</span></div></div> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/weexbox/guide/assets.html" class="prev">
           静态资源
@@ -352,6 +326,6 @@ result: {
         </a>
         →
       </span></p></div> </div> <!----></div></div>
-    <script src="/weexbox/assets/js/app.eaa6635b.js" defer></script><script src="/weexbox/assets/js/10.203988aa.js" defer></script>
+    <script src="/weexbox/assets/js/app.98d97c73.js" defer></script><script src="/weexbox/assets/js/10.92b45331.js" defer></script>
   </body>
 </html>
