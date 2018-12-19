@@ -133,39 +133,6 @@ result: {
 网络请求仅支持`application/json`，我们认为这是最佳实践。
 :::
 
-- 文件上传
-
-upload(object, completionCallback, progressCallback)
-
-```vue
-network.upload({
-  // 请求的URL
-  url: 'https://weexbox.com/api'
-  // 本地文件路径数组
-  files: ['/docment/1.png']
-}, (result) => {
-  // 完成的callback
-}, (result) => {
-  // 进度的callback
-})
-
-// 完成的callback
-result: {
-  // 状态码
-  status: 200,
-  error: '',
-  // 服务器返回结果
-  data: {}
-}
-
-// 进度的callback
-result: {
-  status: 0,
-  // 进度
-  progress: 50
-}
-```
-
 ## wb-event
 
 应用级别事件通知。相比于实例级别的事件[globalEvent](https://weex.apache.org/cn/references/modules/globalevent.html), wb-event 能够跨页面传递事件。
