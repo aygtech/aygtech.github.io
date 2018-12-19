@@ -80,7 +80,9 @@ function genSidebarConfig (title) {
         'native-android',
         'assets',
         'module',
-        'debug'
+        'debug',
+        'change-log',
+        'who-s-using'
       ]
     }
   ]
