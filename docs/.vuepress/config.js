@@ -81,6 +81,7 @@ function genSidebarConfig (title) {
         'assets',
         'module',
         'debug',
+        'eslint',
         'change-log',
         'who-s-using'
       ]

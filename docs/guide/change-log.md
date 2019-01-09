@@ -8,6 +8,7 @@
 - `Android` `iOS` 新开页面时设置标题
 - `Android` `iOS` 集成VasSonic使Web秒开
 - `iOS` 新开页面时设置禁用返回手势
+- `iOS` Router兼容OC，支持OC不继承WBViewController
 - `cli` 一键下载模板
 
 #### 更新
