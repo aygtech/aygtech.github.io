@@ -79,6 +79,7 @@ function genSidebarConfig (title) {
         'native-ios',
         'native-android',
         'assets',
+        'component',
         'module',
         'debug',
         'eslint',

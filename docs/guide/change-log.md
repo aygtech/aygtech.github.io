@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.2.x
+
+#### 新增
+- `Android` `iOS` 支持lottie
+- `template` 增加lottie例子
+
+#### 更新
+- `Android` `iOS` weexSDK更新到0.20.x
+- `cli` 同步最新版本
+
+#### 修复
+- `Android` 修复导航栏bug
+
 ## 1.0.x
 
 #### 新增
