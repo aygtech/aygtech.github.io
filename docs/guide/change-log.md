@@ -8,6 +8,7 @@
 
 #### 更新
 - `Android` `iOS` weexSDK更新到0.20.x
+- `iOS` Event兼容OC
 - `cli` 同步最新版本
 
 #### 修复
