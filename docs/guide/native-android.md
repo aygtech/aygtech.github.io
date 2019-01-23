@@ -8,7 +8,7 @@ Android SDK使用Kotlin开发，并且100%兼容Java。
 :::
 
 ## 初始化
-
+z
 在 Application 中
 
 ```kotlin

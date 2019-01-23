@@ -21,7 +21,6 @@ weex-update目录存在app里面，作为内置包随app一起发布。
 {
   "name": "weexbox", // APP的名字，非必须
   "ios_min_version": "0.0.0", // iOS最低版本要求，必须
-  "android_min_version": "0.0.0" // Android最低版本要求，必须
 }
 ```
 
@@ -56,8 +55,6 @@ src 不以上面两种方式开头，例如：
 ```vue
 // iOS
 <image src="file://var/mobile/Media/DCIM/100APPLE/IMG_0171.PNG"></image>
-// Android
-<image src="/storage/emulated/0/DCIM/Camera/IMG_20180917_145836.jpg"></image>
 ```
 
 ::: tip

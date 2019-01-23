@@ -77,13 +77,11 @@ function genSidebarConfig (title) {
         'getting-started',
         'project',
         'native-ios',
-        'native-android',
         'assets',
         'component',
         'module',
         'debug',
         'eslint',
-        'change-log',
         'who-s-using'
       ]
     }

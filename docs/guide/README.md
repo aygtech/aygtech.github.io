@@ -21,7 +21,6 @@ weex的重心放在了js渲染UI的能力上，对原生的扩展并不多。
 
 ## 支持的系统
 
-- Android 5.0 (API 21)+
 - iOS 10.0+
 
 ## @weexbox/cli

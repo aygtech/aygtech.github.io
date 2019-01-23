@@ -7,7 +7,6 @@
 │   └── weexbox-config.js   // 图片资源的配置文件
 ├── deploy                  // 输出文件夹
 ├── platforms               // 原生文件夹
-│   ├── android             // Android工程
 │   └── ios                 // iOS工程
 ├── src                     // vue源码文件夹
 │   └── module              // 模块文件夹
