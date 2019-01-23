@@ -21,7 +21,7 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "388fb723fa065d069bd69ff1d2f0307a"
+    "revision": "25e19ff909c9b1c1358b2bd7b55a9b0b"
   },
   {
     "url": "assets/css/0.styles.8e0d51a5.css",
@@ -116,8 +116,8 @@ self.__precacheManifest = [
     "revision": "6a741b430499fc44c0e1e2013fc097ff"
   },
   {
-    "url": "assets/js/app.5feb3461.js",
-    "revision": "59cccb84c6a5c8741ffdb74203887af5"
+    "url": "assets/js/app.1249afe3.js",
+    "revision": "51ceed6711bfdc2a170ec70b52116598"
   },
   {
     "url": "camera.png",
@@ -125,7 +125,7 @@ self.__precacheManifest = [
   },
   {
     "url": "config/index.html",
-    "revision": "4bc6be38064d8b4a1ad5a44ff8fe7802"
+    "revision": "8993e2b5eb4e9d39c8fc6f799f8e5288"
   },
   {
     "url": "debug1.png",
@@ -149,7 +149,7 @@ self.__precacheManifest = [
   },
   {
     "url": "default-theme-config/index.html",
-    "revision": "d67577726471e1a47698f05b18a806fa"
+    "revision": "7b1df1879e2104fa03c6af9fd7f10497"
   },
   {
     "url": "done.png",
@@ -157,55 +157,55 @@ self.__precacheManifest = [
   },
   {
     "url": "guide/assets.html",
-    "revision": "8b4a50a00abd1bed82f5938d21b03f85"
+    "revision": "479e8285a04d61024cf4db3f7eb6ce30"
   },
   {
     "url": "guide/change-log.html",
-    "revision": "d47bb3a34e7c84c69628e0c0ed68bfaa"
+    "revision": "89ddde75dbf2c4e55463f1eea9e01d7f"
   },
   {
     "url": "guide/component.html",
-    "revision": "d98ec76f100fbd9003e54eaf95e793ca"
+    "revision": "7e2eea0141659d5fd47f89fb56b59808"
   },
   {
     "url": "guide/debug.html",
-    "revision": "bb48728103f0f357965f4a44087689b1"
+    "revision": "f487bf673019b8e6916bd6c0fbb6a3b3"
   },
   {
     "url": "guide/eslint.html",
-    "revision": "b72777d107bfbb76e2d20a000d6301c0"
+    "revision": "22e1a566a560a5c88bd785300340b0e6"
   },
   {
     "url": "guide/getting-started.html",
-    "revision": "35be4e06ab8798510843b7462e86b895"
+    "revision": "9f7ed649cc42de1a2099135291cf5f09"
   },
   {
     "url": "guide/index.html",
-    "revision": "d72c13cff967c17e230d2ef629bf59e1"
+    "revision": "75e2abad2bce63502493f80116e5b64e"
   },
   {
     "url": "guide/lottie.html",
-    "revision": "ac9b04b3f3c57ca03be8b038592f31c0"
+    "revision": "e3fdac424a21f8e8c72f3bc125b4a739"
   },
   {
     "url": "guide/module.html",
-    "revision": "18418e4158ec6f104ce58e240046aea4"
+    "revision": "fe5829784665ad48c612cc24ae30d50d"
   },
   {
     "url": "guide/native-android.html",
-    "revision": "5b3733ac71fd2f5546b27ffbaf651506"
+    "revision": "79392e9618e92b92dd3b9092ad5bbca9"
   },
   {
     "url": "guide/native-ios.html",
-    "revision": "d8fcc70f48936f2c916fca10b65f5274"
+    "revision": "2ccbec480f83f6a4bb70c286d69799f6"
   },
   {
     "url": "guide/project.html",
-    "revision": "0ee5e405c53fba1833d333e9c5773f86"
+    "revision": "d703e4468944e215c8a28f2a88be3e2c"
   },
   {
     "url": "guide/who-s-using.html",
-    "revision": "8213d15e1c052d456c5718b77850095e"
+    "revision": "4438ac7418152e08d7f095bd4d038409"
   },
   {
     "url": "icons/android-chrome-192x192.png",
@@ -285,7 +285,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "570916d5a02ac8edbd38aedf2595a56e"
+    "revision": "3382bbbb57c76d824945649ee3ef75ec"
   },
   {
     "url": "line-numbers-desktop.png",
