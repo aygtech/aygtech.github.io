@@ -1,12 +1,12 @@
 {
   "name": "weexbox-document",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "weexbox-document",
   "author": "Mario",
   "private": true,
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs && surge weexbox weexbox.surge.sh"
   },
   "keywords": [
     "weex",
