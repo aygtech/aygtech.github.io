@@ -86,16 +86,16 @@ Network.request(url)
 大多数情况下app会有自己的网络封装，可以参考weexbox来实现自己的network module。
 :::
 
-## 热更新
+## 
 
 ```kotlin
-// 配置热更新地址
+// 配置地址
 UpdateManager.serverUrl = hotdeployUrl
 
 // 是否需要强制更新
 UpdateManager.forceUpdate = true
 
-// 执行热更新
+// 执行
 UpdateManager.update { state, progress, error, url ->
     when (updateState) {
         UpdateManager.UpdateState.Unzip -> // 解压
@@ -103,12 +103,12 @@ UpdateManager.update { state, progress, error, url ->
         UpdateManager.UpdateState.UpdateSuccess -> {
             // 更新成功，可以进入APP
             // 如果开启了强制更新，会等到下载完成才会进入这里。否则就是静默更新，解压成功就会进入
-        ... // 还有各种状态码，参见下面表格，可以处理热更新各种情况，如热更新失败提示用户重启
+        ... // 还有各种状态码，参见下面表格，可以处理各种情况，如失败提示用户重启
         }
     }
 }
 ```
-#### 执行热更新完整状态码
+#### 执行完整状态码
 
 状态码|描述|
 --|:--:|

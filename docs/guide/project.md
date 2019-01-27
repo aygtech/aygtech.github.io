@@ -3,7 +3,7 @@
 ```
 .
 ├── config                  // 配置文件夹
-│   ├── update-config.json  // 热更新的配置文件
+│   ├── update-config.json  // 的配置文件
 │   └── weexbox-config.js   // 图片资源的配置文件
 ├── deploy                  // 输出文件夹
 ├── platforms               // 原生文件夹

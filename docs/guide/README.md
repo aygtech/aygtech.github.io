@@ -63,7 +63,7 @@ npm run debug xxx/App.vue
 
 初始化的项目里已经内置了 @weexbox/builder，它负责打包功能。
 
-- 编译打包热更新一条龙服务
+- 编译打包一条龙服务
 
 ```sh
 # 开发环境

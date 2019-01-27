@@ -92,35 +92,6 @@ Network.request(url)
 大多数情况下app会有自己的网络封装，可以参考weexbox来实现自己的network module。
 :::
 
-## 热更新
-
-```swift
-// 配置热更新地址
-UpdateManager.serverUrl = hotdeployUrl
-
-// 是否需要强制更新
-UpdateManager.forceUpdate = true
-
-// 执行热更新
-UpdateManager.update { (state, progress, error, url) in
-    switch state {
-    case .Unzip:
-        // 解压
-    case .DownloadFile:
-        // 下载
-    case .UpdateSuccess:
-        // 更新成功，可以进入APP
-        // 如果开启了强制更新，会等到下载完成才会进入这里。否则就是静默更新，解压成功就会进入
-    }
-}
-```
-
-:::tip
-可以根据环境来选择更新模式。比如  
-开发和测试使用强制更新，保证app启动即使最新代码。  
-准生产和生产使用静默更新，保证用户体验。
-:::
-
 ## 路由
 
 路由提供页面间的跳转功能。

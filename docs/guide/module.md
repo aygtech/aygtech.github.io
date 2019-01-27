@@ -57,7 +57,7 @@ router.open({
 ```
 
 ::: tip url的两种类型
-如果url是http开头，将加载网络资源。否则，会通过热更新从本地加载
+如果url是http开头，将加载网络资源。否则，会通过从本地加载
 :::
 
 - 获取router的params参数

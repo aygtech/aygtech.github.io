@@ -76,7 +76,6 @@ function genSidebarConfig (title) {
         'getting-started',
         'project',
         'native-ios',
-        'assets',
         'component',
         'module',
         'debug',
