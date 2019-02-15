@@ -20,10 +20,10 @@ footer: MIT Licensed | Copyright © 2018-present Mario
 cnpm i -g @weexbox/cli
 
 # 新建一个weex工程
-weexbox create projectName
+weexbox create project-name
 
 # 进入工程
-cd projectName
+cd project-name
 
 # 安装依赖
 cnpm i
