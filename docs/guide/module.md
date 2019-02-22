@@ -2,7 +2,7 @@
 
 ## callback 参数的数据格式
 
-```vue
+```js
 {
   // 状态码。0表示操作成功，-1表示操作失败
   status: 0,
@@ -19,7 +19,7 @@
 
 ### 引用方式
 
-```vue
+```js
 const router = weex.requireModule('wb-router')
 ```
 
@@ -29,7 +29,7 @@ const router = weex.requireModule('wb-router')
 
 open(object)
 
-```vue
+```js
 router.open({
   // 页面名称。内置"weex"、"web"，其他路由需要原生先注册
   name: 'weex'
@@ -64,7 +64,7 @@ router.open({
 
 getParams()
 
-```vue
+```js
 const params = router.getParams()
 ```
 
@@ -72,7 +72,7 @@ const params = router.getParams()
 
 close(number)
 
-```vue
+```js
 // 关闭顶层多个页面，默认1个
 router.close(1)
 ```
@@ -81,7 +81,7 @@ router.close(1)
 
 refresh()
 
-```vue
+```js
 router.refresh()
 ```
 
@@ -91,7 +91,7 @@ router.refresh()
 
 ### 引用方式
 
-```vue
+```js
 const network = weex.requireModule('wb-network')
 ```
 
@@ -101,7 +101,7 @@ const network = weex.requireModule('wb-network')
 
 request(object, callback)
 
-```vue
+```js
 network.request({
   // 请求的URL
   url: 'https://weexbox.com/api',
@@ -145,7 +145,7 @@ wb-event 不区分原生还是 weex，也不区分是同一个页面还是多个
 
 ### 引用方式
 
-```vue
+```js
 const event = weex.requireModule('wb-event')
 ```
 
@@ -155,7 +155,7 @@ const event = weex.requireModule('wb-event')
 
 register(string, callback)
 
-```vue
+```js
 event.register('name', (result) => {
   // result为传过来的参数
 })
@@ -165,7 +165,7 @@ event.register('name', (result) => {
 
 emit(object)
 
-```vue
+```js
 event.emit({
   // 事件名称
   name: 'eventName',
@@ -178,7 +178,7 @@ event.emit({
 
 unregister(string)
 
-```vue
+```js
 event.unregister('name')
 ```
 
@@ -186,7 +186,7 @@ event.unregister('name')
 
 unregisterAll()
 
-```vue
+```js
 event.unregisterAll()
 ```
 
@@ -203,7 +203,7 @@ event.unregisterAll()
 
 ### 引用方式
 
-```vue
+```js
 const modal = weex.requireModule('wb-modal')
 ```
 
@@ -213,7 +213,7 @@ const modal = weex.requireModule('wb-modal')
 
 alert(object, callback)
 
-```vue
+```js
 modal.alert({
   // 标题
   title: '标题',
@@ -235,7 +235,7 @@ result: {
 
 confirm(options, callback)
 
-```vue
+```js
 modal.confirm({
   // 标题
   title: '标题',
@@ -260,7 +260,7 @@ result: {
 
 prompt(object, callback)
 
-```vue
+```js
 modal.prompt({
   // 标题
   title: '标题',
@@ -293,7 +293,7 @@ result: {
 
 actionSheet(object, callback)
 
-```vue
+```js
 modal.actionSheet({
   // 标题，默认为空
   title: '标题',
@@ -325,7 +325,7 @@ result: {
 
 showToast(object)
 
-```vue
+```js
 modal.showToast({
   // 提示信息
   text: '提示信息',
@@ -338,7 +338,7 @@ modal.showToast({
 
 showLoading(string)
 
-```vue
+```js
 // loading 文字，默认为空
 modal.showLoading('加载中...')
 ```
@@ -347,7 +347,7 @@ modal.showLoading('加载中...')
 
 showProgress(object)
 
-```vue
+```js
 modal.showProgress({
   // 进度
   progress: 50
@@ -360,7 +360,7 @@ modal.showProgress({
 
 dismiss()
 
-```vue
+```js
 modal.dismiss()
 ```
 
@@ -370,7 +370,7 @@ modal.dismiss()
 
 ### 引用方式
 
-```vue
+```js
 const navigator = weex.requireModule('wb-navigator')
 ```
 
@@ -380,7 +380,7 @@ const navigator = weex.requireModule('wb-navigator')
 
 setLeftItems(array, callback)
 
-```vue
+```js
 navigator.setLeftItems([
   {
     // 展示的文字
@@ -408,7 +408,7 @@ result: {
 
 setRightItems(array, callback)
 
-```vue
+```js
 navigator.setRightItems([
   {
     // 展示的文字
@@ -436,7 +436,7 @@ result: {
 
 setCenterItem(object, callback)
 
-```vue
+```js
 navigator.setCenterItem({
   // 展示的文字
   text: '',
@@ -458,7 +458,7 @@ result: {
 
 setNavColor(string)
 
-```vue
+```js
 navigator.setNavColor('#00ff00')
 ```
 
@@ -466,7 +466,7 @@ navigator.setNavColor('#00ff00')
 
 onBackPressed(callback)
 
-```vue
+```js
 navigator.onBackPressed(() => {
 })
 ```
@@ -475,7 +475,7 @@ navigator.onBackPressed(() => {
 
 getHeight()
 
-```vue
+```js
 const navHeight = navigator.getHeight()
 ```
 
@@ -485,7 +485,7 @@ const navHeight = navigator.getHeight()
 
 ### 引用方式
 
-```vue
+```js
 const external = weex.requireModule('wb-external')
 ```
 
@@ -495,7 +495,7 @@ const external = weex.requireModule('wb-external')
 
 openBrowser(string)
 
-```vue
+```js
 external.openBrowser('https://aygtech.github.io/weexbox')
 ```
 
@@ -503,7 +503,7 @@ external.openBrowser('https://aygtech.github.io/weexbox')
 
 callPhone(string)
 
-```vue
+```js
 external.callPhone('114')
 
 // callback参数
@@ -517,7 +517,7 @@ result: {
 
 openCamera(object, callback)
 
-```vue
+```js
 external.openCamera({
   // 能否剪裁
   enableCrop: true,
@@ -546,7 +546,7 @@ result: {
 
 openPhoto(object, callback)
 
-```vue
+```js
 external.openPhoto({
   // 最大选取张数
   count: 9,

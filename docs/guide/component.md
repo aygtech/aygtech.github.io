@@ -2,7 +2,7 @@
 
 ## callback 参数的数据格式
 
-```vue
+```js
 {
   // 状态码。0表示操作成功，-1表示操作失败
   status: 0,
@@ -19,7 +19,7 @@
 
 ### 引用方式
 
-```vue
+```js
 <wb-lottie class="happyBirthday" :sourceJson=sourceJson ref="lottie"></wb-lottie>
 ```
 
@@ -37,7 +37,7 @@
 
 isAnimationPlaying()
 
-```vue
+```js
 this.$refs.lottie.isAnimationPlaying()
 ```
 
@@ -45,7 +45,7 @@ this.$refs.lottie.isAnimationPlaying()
 
 play(callback)
 
-```vue
+```js
 this.$refs.lottie.play((result) => {
     console.log(JSON.stringify(result))
 })
@@ -55,7 +55,7 @@ this.$refs.lottie.play((result) => {
 
 playFromProgress(fromProgress, toProgress, callback)
 
-```vue
+```js
 this.$refs.lottie.playFromProgress(0, 1, (result) => {
     console.log(JSON.stringify(result))
 })
@@ -65,7 +65,7 @@ this.$refs.lottie.playFromProgress(0, 1, (result) => {
 
 playFromFrame(fromFrame, toFrame, callback)
 
-```vue
+```js
 this.$refs.lottie.playFromFrame(1, 10, (result) => {
     console.log(JSON.stringify(result))
 })
@@ -75,7 +75,7 @@ this.$refs.lottie.playFromFrame(1, 10, (result) => {
 
 pause()
 
-```vue
+```js
 this.$refs.lottie.pause()
 ```
 
@@ -83,6 +83,6 @@ this.$refs.lottie.pause()
 
 stop()
 
-```vue
+```js
 this.$refs.lottie.stop()
 ```
