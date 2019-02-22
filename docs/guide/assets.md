@@ -119,4 +119,6 @@ module.exports = config
 当`imagePublicPath`为`http`时，需要你自己把`deploy`部署到服务器，图片地址即是部署的地址。  
 当`imagePublicPath`为`bundle://`时，weexbox会自动拷贝`static`到app中。
 
+于是乎，调试的时候跑npm run debug xxx/App.vue的时候，本机图片可以正常显示了。部署的时候，任君挑选是要部署到服务器还是app中。
+
 由此可见，切换图片源不用你改动任何一行业务代码，weexbox全部帮你搞定了。
