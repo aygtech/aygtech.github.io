@@ -38,3 +38,5 @@ cnpm i
 ::: warning 注意
 请确保你的 Node.js 版本 >= 8。
 :::
+
+<center>WeexBox官方QQ群号:943913583</center>
