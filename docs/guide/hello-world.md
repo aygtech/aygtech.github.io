@@ -1,4 +1,4 @@
-# helloWorld
+# Hello World
 
 以此为例
 
@@ -48,26 +48,27 @@ cnpm i
 
 ```
 
-在工程结构 platforms 文件夹中，会看到两个文件夹 android 、ios，Android 端使用 Android Studio 开发工具，导入 platforms/android 文件夹，构建打包生成项目的apk；iOS 端使用 Xcode 开发工具，导入 platforms/ios 文件夹，构建打包生成项目的ipa；
+在工程结构`platforms`文件夹中，会看到两个文件夹`android`、`ios`。  
+Android 端使用 Android Studio 开发工具，导入 `platforms/android` 文件夹，构建打包生成项目的apk。  
+iOS 端先使用CocoaPods安装依赖，再用 Xcode 开发工具导入 `platforms/ios` 文件夹，构建打包生成项目的ipa。
 
 ## @weexbox/debugger
 
 初始化的项目里已经内置了 @weexbox/debugger，它负责调试功能。
 
-在src下建立业务模块，根据给定的项目结构，建立自己的页面结构：
+在`src`下建立业务模块，根据给定的项目结构，建立自己的页面结构：
 
 例如：建立一个HelloWorld页面，我们建立的结构为：
 
 <img src="../.vuepress/public/helloWorld.png"/>
 
-在HelloWorld/index文件夹中，App.vue以及index.js名字保持不变，App.vue中就是我们自己页面的逻辑内容，可**参考***src/page/home/App.vue*建立结构，index.js中的内容**复制***src/page/home/index.js*中的即可。
+在`HelloWorld/index`文件夹中，`App.vue`以及`index.js`名字保持不变，`App.vue`中就是我们自己页面的逻辑内容，可**参考***src/page/home/App.vue*建立结构，`index.js`中的内容**复制***src/page/home/index.js*中的即可。
 
-刚刚在App.vue中书写的代码，我们如何能在app中查看到效果呢？
+刚刚在`App.vue`中书写的代码，我们如何能在app中查看到效果呢？
 
 在项目结构中，使用*npm run debug [vue/weex页面的路径]*
 
-例如：PS E:\work\myWeex\my-app> npm run debug src/HelloWorld/index\App.vue
-
+例如：
 ```sh
 # 代码
 npm run debug src/HelloWorld/index/App.vue
@@ -104,6 +105,10 @@ npm run debug src/HelloWorld/index/App.vue
 
 随后，就可以愉快的开发了，“海阔凭鱼跃，天高任鸟飞”。
 
+::: danger
+确保电脑与手机处于同一网段。
+:::
+
 ## @weexbox/builder
 
 初始化的项目里已经内置了 @weexbox/builder，它负责打包功能。
@@ -124,7 +129,6 @@ npm run preRelease
 npm run release
 ```
 
-再次构建打包生成相关的app。
-:::tip
-确保电脑与手机处于同一网段。
-:::
+这个步骤会
+- 生成一份内置包到app中，你可以再次构建打包生成app。
+- 生产一份更新包deploy，你可以将它部署到nginx。

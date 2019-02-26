@@ -75,7 +75,7 @@ function genSidebarConfig (title) {
       children: [
         '',
         'getting-started',
-        'helloWorld',
+        'hello-world',
         'project',
         'native-ios',
         'native-android',

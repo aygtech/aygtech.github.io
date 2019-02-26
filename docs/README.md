@@ -31,11 +31,11 @@ cnpm i
 # 开始写bug
 ```
 
-::: tip
+::: danger
 请务必使用[cnpm](https://npm.taobao.org/)安装@weexbox
 :::
 
-::: warning 注意
+::: danger 注意
 请确保你的 Node.js 版本 >= 8。
 :::
 

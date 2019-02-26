@@ -14,4 +14,4 @@
 
 - CocoaPods(仅限iOS)
 
-[CocoaPods](https://cocoapods.org/) 1.5.0+
+[CocoaPods](https://cocoapods.org/) 1.6.0+
