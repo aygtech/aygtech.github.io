@@ -4,7 +4,9 @@
 
 #### 新增
 - `Android` `iOS` 支持lottie
+- `Android` `iOS` 支持WebSocket
 - `template` 增加lottie例子
+- `cli` 支持调试本地图片
 
 #### 更新
 - `Android` `iOS` weexSDK更新到0.20.x
@@ -13,6 +15,7 @@
 
 #### 修复
 - `Android` 修复导航栏bug
+- `template` 修复下载时间过长问题
 
 ## 1.0.x
 
