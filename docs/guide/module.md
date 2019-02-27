@@ -572,3 +572,103 @@ result: {
   }
 }
 ```
+
+## Websocket
+
+webSockets 是一种创建持久性的连接，并进行双向数据传输的 HTTP 通信协议。WeexBox 提供了 webSockets 模块方便用户在 H5/iOS/Android 环境下与服务端创建 webSockets 链接进行通信。
+
+### 引用方式
+
+```js
+const websocket = weex.requireModule('webSocket')
+```
+
+### API
+
+- 创建 WebSockets，并连接服务器。
+
+WebSocket(url, protocol)
+
+:::
+@url, string, 表示要连接的 URL
+@protocol, string, WebSockets 协议名字字符串
+:::
+
+```js
+websocket.WebSocket('ws://echo.websocket.org', '')
+```
+
+- 通过 WebSockets 连接向服务器发送数据。
+
+send(data)
+
+:::
+@data, string, 要发送到服务器的数据
+:::
+
+```js
+websocket.send('发送一条消息')
+```
+
+- 关闭 WebSockets 的链接。
+
+close(code, reason)
+
+:::
+@code, number, 关闭连接的状态号
+@reason, string, 关闭的原因
+:::
+
+```js
+websocket.close()
+```
+
+- onopen
+
+连接打开事件的事件监听器，该事件表明这个连接已经准备好接受和发送数据。onopen 接受一个函数作为 EventListener，这个监听器会接受一个 type 为 "open" 的事件对象。
+
+onopen(options)
+
+```js
+websocket.onopen(() => {
+  // websocket连接成功
+})
+```
+
+- onmessage
+
+消息事件的事件监听器，当有消息到达的时触发。onmessage 接受一个函数作为 EventListener，这个监听器会接受一个 type 为 "message" 的事件对象
+
+onmessage(options)
+
+```js
+websocket.onmessage((e) => {
+  // e.data 监听器接收的到的消息
+})
+```
+
+- onclose
+
+连接关闭事件的事件监听器，当连接关闭时触发。onclose 接受一个函数作为 EventListener，这个监听器会接受一个 type 为 "close" 的事件对象。
+
+onclose(options)
+
+```js
+websocket.onclose((e) => {
+  // code, number, 服务器返回关闭的状态码
+  // reason, string, 服务器返回的关闭原因
+  // wasClean, boolen, 是否完全关闭
+})
+```
+
+- onerror
+
+ error 事件的事件监听器，当错误发生时触发。onerror 接受一个函数作为 EventListener，这个监听器会接受一个 type 为 "error" 的事件对象
+
+onerror(options)
+
+```js
+websocket.onerror((e) => {
+  // e.data 监听器接收的到的消息
+})
+```
