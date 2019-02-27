@@ -573,7 +573,7 @@ result: {
 }
 ```
 
-## Websocket
+## webSocket
 
 webSockets 是一种创建持久性的连接，并进行双向数据传输的 HTTP 通信协议。WeexBox 提供了 webSockets 模块方便用户在 H5/iOS/Android 环境下与服务端创建 webSockets 链接进行通信。
 
@@ -589,12 +589,9 @@ const websocket = weex.requireModule('webSocket')
 
 WebSocket(url, protocol)
 
-:::
-@url, string, 表示要连接的 URL
-@protocol, string, WebSockets 协议名字字符串
-:::
-
 ```js
+// @url, string, 表示要连接的 URL
+// @protocol, string, WebSockets 协议名字字符串
 websocket.WebSocket('ws://echo.websocket.org', '')
 ```
 
@@ -602,11 +599,8 @@ websocket.WebSocket('ws://echo.websocket.org', '')
 
 send(data)
 
-:::
-@data, string, 要发送到服务器的数据
-:::
-
 ```js
+// @data, string, 要发送到服务器的数据
 websocket.send('发送一条消息')
 ```
 
@@ -614,12 +608,9 @@ websocket.send('发送一条消息')
 
 close(code, reason)
 
-:::
-@code, number, 关闭连接的状态号
-@reason, string, 关闭的原因
-:::
-
 ```js
+// @code, number, 关闭连接的状态号
+// @reason, string, 关闭的原因
 websocket.close()
 ```
 
@@ -643,7 +634,7 @@ onmessage(options)
 
 ```js
 websocket.onmessage((e) => {
-  // e.data 监听器接收的到的消息
+  // e.data, string, 监听器接收的到的消息
 })
 ```
 
@@ -655,9 +646,9 @@ onclose(options)
 
 ```js
 websocket.onclose((e) => {
-  // code, number, 服务器返回关闭的状态码
-  // reason, string, 服务器返回的关闭原因
-  // wasClean, boolen, 是否完全关闭
+  // e.code, number, 服务器返回关闭的状态码
+  // e.reason, string, 服务器返回的关闭原因
+  // e.wasClean, boolen, 是否完全关闭
 })
 ```
 
@@ -669,6 +660,6 @@ onerror(options)
 
 ```js
 websocket.onerror((e) => {
-  // e.data 监听器接收的到的消息
+  // e.data, string, 监听器接收的到的消息
 })
 ```
