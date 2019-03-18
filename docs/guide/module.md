@@ -219,6 +219,8 @@ modal.alert({
   title: '标题',
   // 弹窗内容
   message: '弹窗内容',
+  // 是否在view最上面一层打开
+  root: false,
   // 确定按钮文字
   okTitle: '确定'
 }, (result) => {
@@ -241,6 +243,8 @@ modal.confirm({
   title: '标题',
   // 弹窗内容
   message: '弹窗内容',
+  // 是否在view最上面一层打开
+  root: false,
   // 取消按钮文字
   cancelTitle: '取消',
   // 确定按钮文字
@@ -266,6 +270,8 @@ modal.prompt({
   title: '标题',
   // 弹窗内容
   message: '我是一个弹窗',
+  // 是否在view最上面一层打开
+  root: false,
   // 占位符
   placeholder: '请输入密码',
   // 是否不显示输入，默认否
@@ -525,6 +531,8 @@ external.openCamera({
   enableCrop: true,
   // 是否矩形剪裁，true为圆形剪裁
   isCircle: true,
+  // 是否在view最上面一层打开
+  root: false,
   // 宽度
   width: 100,
   // 高度
@@ -556,6 +564,8 @@ external.openPhoto({
   enableCrop: true,
   // 是否矩形剪裁，true为圆形剪裁
   isCircle: true,
+  // 是否在view最上面一层打开
+  root: false,
   // 宽度
   width: 100,
   // 高度

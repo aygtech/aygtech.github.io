@@ -15,7 +15,7 @@
   <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
   <meta name="msapplication-TileColor" content="#000000">
     
-    <link rel="preload" href="/weexbox/assets/css/0.styles.821759a7.css" as="style"><link rel="preload" href="/weexbox/assets/js/app.555cf90d.js" as="script"><link rel="preload" href="/weexbox/assets/js/15.298f8a1d.js" as="script"><link rel="prefetch" href="/weexbox/assets/js/10.e7c1e381.js"><link rel="prefetch" href="/weexbox/assets/js/11.3ba9586a.js"><link rel="prefetch" href="/weexbox/assets/js/12.16ebfd77.js"><link rel="prefetch" href="/weexbox/assets/js/13.156e2fc0.js"><link rel="prefetch" href="/weexbox/assets/js/14.8c88ea15.js"><link rel="prefetch" href="/weexbox/assets/js/16.6c520e80.js"><link rel="prefetch" href="/weexbox/assets/js/17.3a5d7ea7.js"><link rel="prefetch" href="/weexbox/assets/js/18.ff22947a.js"><link rel="prefetch" href="/weexbox/assets/js/19.6475b4bd.js"><link rel="prefetch" href="/weexbox/assets/js/2.db7adbae.js"><link rel="prefetch" href="/weexbox/assets/js/20.a2e1ccae.js"><link rel="prefetch" href="/weexbox/assets/js/3.a392218e.js"><link rel="prefetch" href="/weexbox/assets/js/4.7c852cbd.js"><link rel="prefetch" href="/weexbox/assets/js/5.c83ae3da.js"><link rel="prefetch" href="/weexbox/assets/js/6.90d63484.js"><link rel="prefetch" href="/weexbox/assets/js/7.12237cc5.js"><link rel="prefetch" href="/weexbox/assets/js/8.22f022ae.js"><link rel="prefetch" href="/weexbox/assets/js/9.cf1ca687.js">
+    <link rel="preload" href="/weexbox/assets/css/0.styles.821759a7.css" as="style"><link rel="preload" href="/weexbox/assets/js/app.90f93bc6.js" as="script"><link rel="preload" href="/weexbox/assets/js/15.070a0310.js" as="script"><link rel="prefetch" href="/weexbox/assets/js/10.e7c1e381.js"><link rel="prefetch" href="/weexbox/assets/js/11.3ba9586a.js"><link rel="prefetch" href="/weexbox/assets/js/12.16ebfd77.js"><link rel="prefetch" href="/weexbox/assets/js/13.156e2fc0.js"><link rel="prefetch" href="/weexbox/assets/js/14.8c88ea15.js"><link rel="prefetch" href="/weexbox/assets/js/16.6c520e80.js"><link rel="prefetch" href="/weexbox/assets/js/17.3a5d7ea7.js"><link rel="prefetch" href="/weexbox/assets/js/18.ff22947a.js"><link rel="prefetch" href="/weexbox/assets/js/19.6475b4bd.js"><link rel="prefetch" href="/weexbox/assets/js/2.db7adbae.js"><link rel="prefetch" href="/weexbox/assets/js/20.a2e1ccae.js"><link rel="prefetch" href="/weexbox/assets/js/3.a392218e.js"><link rel="prefetch" href="/weexbox/assets/js/4.7c852cbd.js"><link rel="prefetch" href="/weexbox/assets/js/5.c83ae3da.js"><link rel="prefetch" href="/weexbox/assets/js/6.90d63484.js"><link rel="prefetch" href="/weexbox/assets/js/7.12237cc5.js"><link rel="prefetch" href="/weexbox/assets/js/8.22f022ae.js"><link rel="prefetch" href="/weexbox/assets/js/9.cf1ca687.js">
     <link rel="stylesheet" href="/weexbox/assets/css/0.styles.821759a7.css">
   </head>
   <body>
@@ -106,6 +106,8 @@ wb-event 不区分原生还是 weex，也不区分是同一个页面还是多个
   title<span class="token punctuation">:</span> <span class="token string">'标题'</span><span class="token punctuation">,</span>
   <span class="token comment">// 弹窗内容</span>
   message<span class="token punctuation">:</span> <span class="token string">'弹窗内容'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 是否在view最上面一层打开</span>
+  root<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   <span class="token comment">// 确定按钮文字</span>
   okTitle<span class="token punctuation">:</span> <span class="token string">'确定'</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
@@ -121,6 +123,8 @@ result<span class="token punctuation">:</span> <span class="token punctuation">{
   title<span class="token punctuation">:</span> <span class="token string">'标题'</span><span class="token punctuation">,</span>
   <span class="token comment">// 弹窗内容</span>
   message<span class="token punctuation">:</span> <span class="token string">'弹窗内容'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 是否在view最上面一层打开</span>
+  root<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   <span class="token comment">// 取消按钮文字</span>
   cancelTitle<span class="token punctuation">:</span> <span class="token string">'取消'</span><span class="token punctuation">,</span>
   <span class="token comment">// 确定按钮文字</span>
@@ -139,6 +143,8 @@ result<span class="token punctuation">:</span> <span class="token punctuation">{
   title<span class="token punctuation">:</span> <span class="token string">'标题'</span><span class="token punctuation">,</span>
   <span class="token comment">// 弹窗内容</span>
   message<span class="token punctuation">:</span> <span class="token string">'我是一个弹窗'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 是否在view最上面一层打开</span>
+  root<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   <span class="token comment">// 占位符</span>
   placeholder<span class="token punctuation">:</span> <span class="token string">'请输入密码'</span><span class="token punctuation">,</span>
   <span class="token comment">// 是否不显示输入，默认否</span>
@@ -278,6 +284,8 @@ result<span class="token punctuation">:</span> <span class="token punctuation">{
   enableCrop<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
   <span class="token comment">// 是否矩形剪裁，true为圆形剪裁</span>
   isCircle<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">// 是否在view最上面一层打开</span>
+  root<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   <span class="token comment">// 宽度</span>
   width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
   <span class="token comment">// 高度</span>
@@ -302,6 +310,8 @@ result<span class="token punctuation">:</span> <span class="token punctuation">{
   enableCrop<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
   <span class="token comment">// 是否矩形剪裁，true为圆形剪裁</span>
   isCircle<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">// 是否在view最上面一层打开</span>
+  root<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
   <span class="token comment">// 宽度</span>
   width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
   <span class="token comment">// 高度</span>
@@ -351,6 +361,6 @@ websocket<span class="token punctuation">.</span><span class="token function">cl
         </a>
         →
       </span></p></div> </div> <!----></div></div>
-    <script src="/weexbox/assets/js/app.555cf90d.js" defer></script><script src="/weexbox/assets/js/15.298f8a1d.js" defer></script>
+    <script src="/weexbox/assets/js/app.90f93bc6.js" defer></script><script src="/weexbox/assets/js/15.070a0310.js" defer></script>
   </body>
 </html>
