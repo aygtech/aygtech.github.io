@@ -299,6 +299,8 @@ modal.actionSheet({
   title: '标题',
   // 弹窗内容，默认为空
   message: '弹窗内容',
+  // 是否在view最上面一层打开
+  root: false,
   // action列表
   actions: [{
     // 按钮类型'danger', 'cancel', 'normal'。默认normal
