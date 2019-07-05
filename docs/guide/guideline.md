@@ -85,9 +85,13 @@ npm run watchDevelop
 
 <img src="../.vuepress/public/image/weexbox2.0/step2.png"/>
 
-扫码以后，界面为：
+iOS扫描后界面为：
 
 <img src="../.vuepress/public/image/weexbox2.0/step3.png"/>
+
+Android扫描后界面为：(因渲染方式不同，Android会自动打开js调试模式，iOS不需要；在日志等级中，Android默认设置为debug，需要手动调整为log模式，即可查看输入日志了。)
+
+<img src="../.vuepress/public/image/weexbox2.0/step4.png"/>
 
 手机端进入weex页面，随意更改页面内容，就可以看到页面中的输出了。
 
