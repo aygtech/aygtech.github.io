@@ -76,7 +76,6 @@ function genSidebarConfig (title) {
         '',
         'getting-started',
         'hello-world',
-        'migrate',
         'project',
         'native-ios',
         'native-android',
@@ -86,6 +85,7 @@ function genSidebarConfig (title) {
         'debug',
         'eslint',
         'guideline',
+        'migrate',
         'change-log',
         'who-s-using'
       ]
