@@ -2,7 +2,7 @@
 
 - Node
 
-[Nodejs](https://nodejs.org/zh-cn/) 8.0+
+[Nodejs](https://nodejs.org/zh-cn/) 10.0+
 
 - AndroidStudio(仅限Android)
 
@@ -14,4 +14,4 @@
 
 - CocoaPods(仅限iOS)
 
-[CocoaPods](https://cocoapods.org/) 1.6.0+
+[CocoaPods](https://cocoapods.org/) 1.7.0+
