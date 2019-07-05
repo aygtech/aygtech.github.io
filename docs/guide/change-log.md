@@ -1,5 +1,19 @@
 # Change Log
 
+## 2.0.0
+
+#### 新增
+- `@weexbox/service` 替换原来的@weexbox/builder和@weexbox/debugger
+- `@weexbox/service` 增加全局热重载模式
+- `template` 增加flutter支持
+- `cli` 增加创建页面命令
+- `cli` 增加环境检查命令
+
+#### 更新
+- `WeexSDK` 更新到0.24.x
+- `Weex 调试工具` 更新到2.0.0
+- `lint` 代码检查更严格了
+
 ## 1.2.x
 
 #### 新增
