@@ -28,12 +28,15 @@ weex的重心放在了js渲染UI的能力上，对原生的扩展并不多。
 
 @weexbox/cli 帮助你快速初始化工程项目。
 
-```sh
-# 安装
+``` bash
+# 安装cli
 cnpm i -g @weexbox/cli
 
 # 新建一个weex工程
 weexbox create project-name
+# 或者
+# 新建一个weex和flutter混合工程
+weexbox create project-name -f
 
 # 进入工程
 cd project-name
@@ -44,25 +47,15 @@ cnpm i
 # 开始写bug
 ```
 
-## @weexbox/debugger
+## @weexbox/service
 
-初始化的项目里已经内置了 @weexbox/debugger，它负责调试功能。
+初始化的项目里已经内置了 @weexbox/service，它负责调试和打包功能。
 
-- 调试app里的weex页面
-
-```sh
-npm run debug
-```
-
-- 从源码调试页面，并且支持热刷新
+- 调试app里的所有weex页面
 
 ```sh
-npm run debug xxx/App.vue
+npm run watchDevelop
 ```
-
-## @weexbox/builder
-
-初始化的项目里已经内置了 @weexbox/builder，它负责打包功能。
 
 - 编译打包热更新一条龙服务
 

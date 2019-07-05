@@ -4,7 +4,7 @@ module.exports = {
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: 'WeexBox',
+      title: 'WeexBox 2',
       description: '一套简洁高效的APP混合开发解决方案'
     }
   },
