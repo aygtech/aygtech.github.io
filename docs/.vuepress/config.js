@@ -77,6 +77,7 @@ function genSidebarConfig (title) {
         'getting-started',
         'hello-world',
         'guideline',
+        'migrate',
         'project',
         'native-ios',
         'native-android',
