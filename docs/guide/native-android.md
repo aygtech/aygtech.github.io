@@ -7,6 +7,16 @@ Android SDK使用Kotlin开发，并且100%兼容Java。
 对于有追求的团队而言，强烈建议使用Kotlin来开发，开发速度和稳健度都会大幅提升！
 :::
 
+## 集成SDK
+
+修改app的build.gradle
+
+```groovy
+dependencies {
+    api 'com.github.aygtech:weexbox-android-library:2.1.40'
+}
+```
+
 ## 初始化
 
 在 Application 中

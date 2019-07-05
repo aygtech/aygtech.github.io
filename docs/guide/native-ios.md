@@ -18,7 +18,7 @@ inhibit_all_warnings!
 use_modular_headers!
 
 target 'WeexBoxExample' do
-    pod 'WeexBox'
+    pod 'WeexBox', '~> 2.0'
 end
 ```
 
