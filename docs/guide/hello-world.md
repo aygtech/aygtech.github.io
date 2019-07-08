@@ -1,7 +1,5 @@
 # Hello World
 
-**--仅适用于1.x.x版本--**
-
 以此为例
 
 - 说明如何创建页面到app中？
@@ -9,6 +7,8 @@
 - 如何打包构建app？
 
 ## @weexbox/cli
+
+使用命令cnpm i -g @weexbox/cli 升级weexbox/cli到最新版，使用下面命令创建项目结构
 
 ```sh
 # 安装
@@ -33,17 +33,17 @@ cnpm i
 │   ├── update-config.json  // 热更新的配置文件
 │   └── weexbox-config.js   // 图片资源的配置文件
 ├── deploy                  // 输出文件夹，自动生成
-│   ├── 20190103153502      // js bundle文件夹
-│   │   └── module          // 模块文件夹
-│   │       └── page.js     // js bundle
-│   ├── static              // 图片资源
-│   └── update-version.txt  // 打包时间戳
-├── platforms               // 原生文件夹
+│   ├── www                 // js bundle文件夹
+│   │   └── page            // 模块文件夹
+│   │       ├── about.js    // js bundle
+│   │       └── ...[.js]    // js bundle
+│   └── static              // 图片资源
+├── platforms               // 原生文件夹
 │   ├── android             // Android工程
 │   └── ios                 // iOS工程
-├── src                     // vue源码文件夹
-│   └── module              // 模块文件夹。名字根据项目而定
-│       └── page            // 页面文件夹。名字根据项目而定
+├── src                     // 项目源码
+│   └── page                // 模块文件夹[名字根据项目而定]
+│       └── about           // 页面文件夹[名字根据项目而定]
 │           ├── App.vue     // vue源码
 │           └── index.js    // 入口文件
 └── static                  // 图片资源文件夹
@@ -54,9 +54,9 @@ cnpm i
 Android 端使用 Android Studio 开发工具，导入 `platforms/android` 文件夹，构建打包生成项目的apk。  
 iOS 端先使用CocoaPods安装依赖，再用 Xcode 开发工具导入 `platforms/ios` 文件夹，构建打包生成项目的ipa。
 
-## @weexbox/debugger
+## @weexbox/service
 
-初始化的项目里已经内置了 @weexbox/debugger，它负责调试功能。
+初始化的项目中已经内置了 @weexbox/service，替换原来的 @weexbox/builder 和 @weexbox/debugger ，增加全局热重载模式。
 
 在`src`下建立业务模块，根据给定的项目结构，建立自己的页面结构：
 
@@ -64,46 +64,61 @@ iOS 端先使用CocoaPods安装依赖，再用 Xcode 开发工具导入 `platfor
 
 <img src="../.vuepress/public/helloWorld.png"/>
 
-在`HelloWorld/index`文件夹中，`App.vue`以及`index.js`名字保持不变，`App.vue`中就是我们自己页面的逻辑内容，可**参考***src/page/home/App.vue*建立结构，`index.js`中的内容**复制***src/page/home/index.js*中的即可。
+在`HelloWorld/index`文件夹中，`App.vue`以及`index.js`名字保持不变，`App.vue`中书写我们的业务逻辑，可**参考** *src/page/home/App.vue* 建立结构，`index.js`中的内容**复制** * src/page/home/index.js *中的即可。
 
 刚刚在`App.vue`中书写的代码，我们如何能在app中查看到效果呢？
 
-在项目结构中，使用*npm run debug [vue/weex页面的路径]*
+在项目结构中，使用 **npm run watchDevelop**
 
 例如：
+
 ```sh
 # 代码
-npm run debug src/HelloWorld/index/App.vue
+npm run watchDevelop
 ```
 
-浏览器会自动打开一个界面，如下：
+::: danger
+在src下创建页面后，需要重新运行 **npm run watchDevelop**
+:::
 
-<img src="../.vuepress/public/image/debugger/bug1.png"/>
+代码编辑器中，会打印如下所示：
 
-**打开我们自己生成的app（apk或ipa），如图所示**
+<img src="../.vuepress/public/image/weexbox2.0/step1.png"/>
+
+**打开我们自己生成的APP（apk或ipa），如图所示**
+
 <img src="../.vuepress/public/image/debugger/bug2.png"/>
 
 点击右边的浮层，浮层按钮，如下所示：
-<img src="../.vuepress/public/image/debugger/bug3.png"/>
 
-点击照相icon，打开摄像头，扫描上面浏览器打开的页面，出现如下界面，点击如图所示位置：
-<img src="../.vuepress/public/image/debugger/bug4.png"/>
+<img src="../.vuepress/public/image/weexbox2.0/debug2.png"/>
 
-再次打开app中的扫码功能，扫描刚点击后出现的二维码，如下图：
-<img src="../.vuepress/public/image/debugger/bug5.png"/>
+点击右边的浮层按钮，点击照相icon，打开摄像头，扫描浏览器打开的页面：
 
-扫码以后，界面为：
-<img src="../.vuepress/public/image/debugger/bug6.png"/>
+<img src="../.vuepress/public/image/weexbox2.0/step2.png"/>
+
+iOS扫描后界面为：
+
+<img src="../.vuepress/public/image/weexbox2.0/step3.png"/>
+
+Android扫描后界面为：(因渲染方式不同，Android会自动打开js调试模式，iOS不需要；在日志等级中，Android默认设置为debug，需要手动调整为log模式，即可查看输入日志了)
+
+<img src="../.vuepress/public/image/weexbox2.0/step4.png"/>
 
 手机端为：
 
-<img src="../.vuepress/public/image/debugger/bug7.png"/>
+<img src="../.vuepress/public/image/weexbox2.0/mob2.png"/>
 
-自此，我们将手机跟pc联系起来了，我们就能将本地书写的页面在app上预览调试了。
+当调整，src/HelloWorld/index/App.vue中的代码时，增加“This is my first weexApp！”,保存后，页面会自动刷新同时app中的页面也会刷新。
 
-当我调整，src/HelloWorld/index/App.vue中的代码时，增加“This is my first weexApp！”,保存后，页面会自动刷新同时app中的页面也会刷新。
-<img src="../.vuepress/public/image/debugger/bug8.png"/>
-<img src="../.vuepress/public/image/debugger/bug9.png"/>
+<img src="../.vuepress/public/image/weexbox2.0/mob1.png"/>
+<img src="../.vuepress/public/image/weexbox2.0/mob3.png"/>
+
+当我们想调试某个页面时，点击APP中的悬浮窗中的分享icon，出现如下界面：
+
+<img src="../.vuepress/public/image/weexbox2.0/debug1.png"/>
+
+这时输入想要调试的页面路径，即可！
 
 随后，就可以愉快的开发了，“海阔凭鱼跃，天高任鸟飞”。
 
@@ -111,11 +126,16 @@ npm run debug src/HelloWorld/index/App.vue
 确保电脑与手机处于同一网段。
 :::
 
-## @weexbox/builder
+## 项目构建
 
-初始化的项目里已经内置了 @weexbox/builder，它负责打包功能。
+初始化的项目里已经内置了 @weexbox/service，它负责打包功能。
 
-开发完代码，运行npm run develop
+开发完代码，运行 npm run develop
+
+这时会：
+
+- 生成一份内置包到app中，你可以再次构建打包生成app。
+- 生产一份更新包deploy，你可以将它部署到nginx。
 
 ```sh
 # 开发环境
@@ -130,7 +150,3 @@ npm run preRelease
 # 生成环境
 npm run release
 ```
-
-这个步骤会
-- 生成一份内置包到app中，你可以再次构建打包生成app。
-- 生产一份更新包deploy，你可以将它部署到nginx。
