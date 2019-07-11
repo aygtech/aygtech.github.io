@@ -82,9 +82,9 @@ function genSidebarConfig (title) {
         'assets',
         'component',
         'module',
-        'debug',
+        // 'debug',
         'eslint',
-        'guideline',
+        // 'guideline',
         'migrate',
         'change-log',
         'who-s-using'
