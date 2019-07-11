@@ -134,7 +134,7 @@ Android扫描后界面为：(因渲染方式不同，Android会自动打开js调
 
 初始化的项目里已经内置了 @weexbox/service，它负责打包功能。
 
-开发完代码，运行 npm run develop
+编译打包热更新一条龙服务
 
 这时会：
 

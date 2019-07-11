@@ -105,11 +105,11 @@ Android扫描后界面为：(因渲染方式不同，Android会自动打开js调
 确保电脑与手机处于同一网段。
 :::
 
-## @weexbox/builder
+## @weexbox/service
 
-初始化的项目里已经内置了 @weexbox/builder，它负责打包功能。
+初始化的项目里已经内置了 @weexbox/service，它负责打包功能。
 
-开发完代码，运行npm run develop
+编译打包热更新一条龙服务
 
 ```sh
 # 开发环境
