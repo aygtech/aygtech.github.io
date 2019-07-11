@@ -10,12 +10,15 @@
 
 使用命令cnpm i -g @weexbox/cli 升级weexbox/cli到最新版，使用下面命令创建项目结构
 
-```sh
-# 安装
+``` bash
+# 安装cli
 cnpm i -g @weexbox/cli
 
 # 新建一个weex工程
 weexbox create project-name
+# 或者
+# 新建一个weex和flutter混合工程
+weexbox create project-name -f
 
 # 进入工程
 cd project-name
@@ -23,6 +26,7 @@ cd project-name
 # 安装依赖
 cnpm i
 
+# 开始写bug
 ```
 
 安装依赖后，项目的结构[如下](https://aygtech.github.io/weexbox/guide/project.html)
