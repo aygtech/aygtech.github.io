@@ -11,7 +11,7 @@
 │   │       └── page.js     // js bundle
 │   ├── static              // 图片资源
 │   └── update-version.txt  // 打包时间戳
-├── platforms               // 原生文件夹
+├── platforms               // 原生文件夹
 │   ├── android             // Android工程
 │   └── ios                 // iOS工程
 ├── src                     // vue源码文件夹

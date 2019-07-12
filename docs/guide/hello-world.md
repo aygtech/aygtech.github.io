@@ -31,27 +31,26 @@ cnpm i
 
 安装依赖后，项目的结构[如下](https://aygtech.github.io/weexbox/guide/project.html)
 
-```sh
+```
 .
 ├── config                  // 配置文件夹
-│   ├── update-config.json  // 热更新的配置文件
-│   └── weexbox-config.js   // 图片资源的配置文件
+│   ├── update-config.json  // 热更新的配置文件
+│   └── weexbox-config.js   // 图片资源的配置文件
 ├── deploy                  // 输出文件夹，自动生成
-│   ├── www                 // js bundle文件夹
-│   │   └── page            // 模块文件夹
-│   │       ├── about.js    // js bundle
-│   │       └── ...[.js]    // js bundle
-│   └── static              // 图片资源
+│   ├── 20190103153502      // js bundle文件夹
+│   │   └── module          // 模块文件夹
+│   │       └── page.js     // js bundle
+│   ├── static              // 图片资源
+│   └── update-version.txt  // 打包时间戳
 ├── platforms               // 原生文件夹
-│   ├── android             // Android工程
-│   └── ios                 // iOS工程
-├── src                     // 项目源码
-│   └── page                // 模块文件夹[名字根据项目而定]
-│       └── about           // 页面文件夹[名字根据项目而定]
-│           ├── App.vue     // vue源码
-│           └── index.js    // 入口文件
+│   ├── android             // Android工程
+│   └── ios                 // iOS工程
+├── src                     // vue源码文件夹
+│   └── module              // 模块文件夹。名字根据项目而定
+│       └── page            // 页面文件夹。名字根据项目而定
+│           ├── App.vue     // vue源码
+│           └── index.js    // 入口文件
 └── static                  // 图片资源文件夹
-
 ```
 
 在工程结构`platforms`文件夹中，会看到两个文件夹`android`、`ios`。  
