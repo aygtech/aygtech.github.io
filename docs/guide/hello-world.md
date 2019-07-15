@@ -8,7 +8,7 @@
 
 ## @weexbox/cli
 
-使用命令cnpm i -g @weexbox/cli 升级weexbox/cli到最新版，使用下面命令创建项目结构
+使用命令cnpm i -g @weexbox/cli 升级weexbox/cli到最新版，运行命令创建项目结构
 
 ``` bash
 # 安装cli
@@ -96,7 +96,7 @@ npm run watchDevelop
 
 <img src="../.vuepress/public/image/weexbox2.0/debug2.png"/>
 
-点击右边的浮层按钮，点击照相icon，打开摄像头，扫描浏览器打开的页面：
+点击右边的浮层按钮，点击照相icon，打开摄像头，扫描浏览器(**强烈建议使用chrome浏览器**)打开的页面：
 
 <img src="../.vuepress/public/image/weexbox2.0/step2.png"/>
 
