@@ -31,11 +31,15 @@ open(object)
 
 ```js
 router.open({
-  // 页面名称。内置"weex"、"web"，其他路由需要原生先注册
+  // 页面名称。内置"weex"、"web"，"flutter" 其他路由需要原生先注册
   name: 'weex'
   // 下一个weex/web的路径
   url: 'login.js',
-  // 页面出现方式,push或者present。默认是 push
+  /*
+  push: iOS下 从右到左的动画打开页面,
+  present: iOS下 从下到上的动画打开页面,
+  modalMask: 弹出一个透明层，weex或者flutter需要做弹框可以使用此模式。
+  */ 
   type: 'push',
   // 是否隐藏导航栏, 默认显示导航栏
   navBarHidden: false,
@@ -45,15 +49,38 @@ router.open({
   disableGestureBack: false,
   // 需要传到下一个页面的数据，默认为空
   params: {},
-  // 指定从堆栈的哪个页面开始关闭，不传是不会关闭的
-  closeFrom: 1
-  // 关闭页面的方向，默认和堆栈方向一致
+  // 指定从哪个页面开始关闭，不传是不会关闭的，0代表当前页面。
+  closeFrom: 0
+  // 关闭页面的方向，默认是页面数组的顺序。
   closeFromBottomToTop: true
-  // 关闭页面的个数。如果传了closeFrom但没有传closeCount，分两种情况：
-  // closeFromBottomToTop为true时关闭到当前页面（当前页面也会关闭）
-  // closeFromBottomToTop为false时关闭到根页面（根页面不关闭）
+  // 关闭页面的个数,默认是1
   closeCount: 1
 })
+
+// 如果A->B->C->D 四个页面，在C页面打开D页面的同时想关闭B和C页面，有以下两种方式。
+router.open({
+  name: 'weex',
+  url:  'C页面',
+  closeFrom: 0,
+  closeFromBottomToTop: true,
+  closeCount:2
+})
+router.open(
+  name: 'weex',
+  url:  'C页面',
+  closeFrom: 0,
+  closeFromBottomToTop: false,
+  closeCount:2
+)
+
+// 如果A...Z，N个页面，想在打开下一个页面的同时，只保留当前页面和第一个页面（根页面）
+router.open(
+  name: 'weex',
+  url:  '下一个页面',
+  closeFrom: 0
+  closeFromBottomToTop: false,
+  closeCount:999
+)
 ```
 
 ::: tip url的两种类型
