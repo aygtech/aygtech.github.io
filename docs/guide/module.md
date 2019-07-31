@@ -58,18 +58,21 @@ router.open({
 })
 
 // 如果A->B->C->D 四个页面，在C页面打开D页面的同时想关闭B和C页面，有以下两种方式。
+// closeFromBottomToTop: true（A到C方向） false（C到A方向）
+// closeFrom: 0（两种情况：{A到C方向：指的是B(由于A是APP的第一个页面，由于不能直接被杀死，所以从B开始数)}，{C到A方向：指的是C}）
+// closeCount: 关闭的个数
 router.open({
   name: 'weex',
-  url:  'C页面',
+  url:  'D页面',
   closeFrom: 0,
-  closeFromBottomToTop: true,
+  closeFromBottomToTop: true, // A到C方向
   closeCount:2
 })
 router.open(
   name: 'weex',
-  url:  'C页面',
+  url:  'D页面',
   closeFrom: 0,
-  closeFromBottomToTop: false,
+  closeFromBottomToTop: false, // C到A方向
   closeCount:2
 )
 
