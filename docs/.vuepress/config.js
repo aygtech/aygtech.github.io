@@ -76,6 +76,7 @@ function genSidebarConfig (title) {
         '',
         'getting-started',
         'hello-world',
+        'flutter',
         'project',
         'native-ios',
         'native-android',
