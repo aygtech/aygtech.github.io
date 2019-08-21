@@ -29,7 +29,8 @@ override fun onCreate() {
     WeexBoxEngine.setup(this, null)
 
     // 开启调试
-    WeexBoxEngine.isDebug = true
+    WeexBoxEngine.INSTANCE.setDebug(true);
+
 }
 ```
 
