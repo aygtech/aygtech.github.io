@@ -1,6 +1,6 @@
 {
   "name": "weexbox-document",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "weexbox-document",
   "author": "Mario",
   "private": true,
@@ -15,6 +15,6 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "vuepress": "^1.0.2"
+    "vuepress": "^1.0.3"
   }
 }
