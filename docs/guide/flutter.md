@@ -76,69 +76,27 @@
   支持|Android,iOS|Android,iOS|Android,iOS,web?|
 
 
-## Dart简介
-* Dart 是一种 易于学习、 易于扩展、并且可以部署到 任何地方 的 应用 编程 语言。
-* Google 使用 Dart 来开发 大型应用。
-* 通过核心库和工具打造一个坚固的基石
-* 让编写通用功能的代码更加容易
-* 不要给程序员提供惊喜
-* 为真实的应用提供稳定务实的解决方案
-## 环境配置
+## weexBox中使用flutter
+### 安装环境
+* [flutter SDK安装](https://flutter.dev/docs/get-started/install)
+* 根据flutter官网配置环境变量 
+### 创建项目
+* weexBox可以通过命令行创建包含weex与flutter的混合项目：
 
-* [下载flutter](https://flutter.io/setup-macos/).
-* 配置环境变量 
-```js
-vim ~/.bash_profile
-
-export PATH=/你的flutter文件夹所在位置/flutter/bin:$PATH
-
-source ~/.bash_profile
+``` bash
+# 新建一个weex和flutter混合工程
+weexbox create project-name -f
 ```
-* 检查环境
-```js
-// 能出现以下帮助信息，代表flutter安装成功
-flutter -h
-Manage your Flutter app development.
+#### 注意：
+* flutter章节是基于Android studio开发环境所写
 
-Common commands:
-
-  flutter create <output directory>
-    Create a new Flutter project in the specified directory.
-
-  flutter run [options]
-    Run your Flutter application on an attached device or in an emulator.
-
-Usage: flutter <command> [arguments]
-
-// flutter doctor 检查环境，若缺依赖，按照提交安装即可。
-flutter doctor
-
-Doctor summary (to see all details, run flutter doctor -v):
-[✓] Flutter (Channel stable, v1.7.8+hotfix.4, on Mac OS X 10.14.4 18E226, locale
-    zh-Hans-CN)
-
-[!] Android toolchain - develop for Android devices (Android SDK version 28.0.3)
-    ! Some Android licenses not accepted.  To resolve this, run: flutter doctor
-      --android-licenses
-[✓] Xcode - develop for iOS and macOS (Xcode 10.2)
-[✓] iOS tools - develop for iOS devices
-[✓] Android Studio (version 3.4)
-```
-## 项目简介
-
-* 创建flutter项目
-```js
-// 注意 flutter 建议使用使用这样命名方式。(小写开头)
-flutter create my_flutter_app
-// 创建项目的更多选项参考
-flutter help create
-```
-* 运行项目
-```js
-// run 起来的项目支持热重载
-flutter run
-```
-
+### 运行项目
+运行项目之前，需要先用Android Studio打开flutter_module项目，该项目在platforms文件夹下，与Android、ios项目同级。因为原生项目需要将flutter文件打包到apk里面，需要先确保flutter项目环境没有问题。打开flutter_module项目后配置好flutter与dart安装路径，如下图：
+* flutter sdk
+<img src="../.vuepress/public/image/weexbox2.0/flutter sdk.png"/>
+* dart sdk
+<img src="../.vuepress/public/image/weexbox2.0/dart_sdk.png"/>
+然后同步环境后运行该项目，编译一段时间后，生成apk成功（注意apk生成成功，不成功说明你的flutter环境有问题，请检查是否缺少了某个步骤），安装apk成功后，打开apk，Console将会报错，因为该flutter项目并不是一个纯项目，而是我们原生项目的一个依赖。接下来就可以直接运行原生项目。
 * 项目结构
   目录与文件|说明|
   --|:--:|
@@ -175,39 +133,6 @@ flutter:
      - images/icon_expert_help_2.png
      - images/icon_expert_help_3.png
 ```
-
-## 网络请求
-对于网络请求，我们推荐使用dio。[文档](https://github.com/flutterchina/dio/blob/master/README-ZH.md)
-* 在pubspec.yaml添加依赖
-
-```js
-dependencies:
-  dio: ^2.1.x  // 请使用pub上2.1分支的最新版本
-```
-* get 请求
-```js
-Response response;
-Dio dio = new Dio();
-response = await dio.get("/test?id=12&name=小老弟");
-print(response.data.toString());
-// 请求参数也可以通过对象传递，上面的代码等同于：
-response = await dio.get("/test", queryParameters: {"id": 12, "name": "小老弟"});
-print(response.data.toString());
-
-```
-* post 请求
-```js
-response = await dio.post("/test", data: {"id": 12, "name": "天伟老师"});
-```
-
-
-## 效果展示
-* 常用布局
-
-<img src="../.vuepress/public/image/weexbox2.0/flutter5.png"/>
-
-
-
 ## 混合开发
 #### 一. 集成到已有的Android项目  [文档](https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps)
 1. 创建module
