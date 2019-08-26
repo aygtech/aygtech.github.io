@@ -133,75 +133,9 @@ flutter:
      - images/icon_expert_help_2.png
      - images/icon_expert_help_3.png
 ```
-## 混合开发
-#### 一. 集成到已有的Android项目  [文档](https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps)
-1. 创建module
-```js
-cd some/path/
-
-flutter create -t module --org com.example my_flutter
-```
-2. 主build.gradle加入
-
-```js
-android {
-  //...
-  compileOptions {
-    sourceCompatibility 1.8
-    targetCompatibility 1.8
-  }
-}
-```
-3. 创建aar包
-
-```js
-$ cd some/path/my_flutter
-$ flutter build aar
-```
-4. 在app/build.gradle中加入
-
-```js
-// MyApp/app/build.gradle
-android {
-  // ...
-}
-
-repositories {
-  maven {
-    url 'some/path/my_flutter/build/host/outputs/repo'
-  }
-}
-
-dependencies {
-  // ...
-  releaseCompile ('com.example.my_flutter:flutter_release:1.0@aar') {
-    transitive = true
-  }
-}
-```
-5. settings.gradle中加入：
-
-```js
-// MyApp/settings.gradle
-include ':app'                                     // assumed existing content
-setBinding(new Binding([gradle: this]))                                 // new
-evaluate(new File(                                                      // new
-  settingsDir.parentFile,                                               // new
-  'my_flutter/.android/include_flutter.groovy'                          // new
-))  
-```
-6. 最后在app/build.gradle中加入依赖
-
-```js
-dependencies {
-  implementation project(':flutter')
-}
-```
-#### 二. 集成到已有的iOS项目  [文档](https://github.com/flutter/flutter/wiki/Add-Flutter-to-existing-apps)
-
-
 
 ## 原生通信
+* 对于某些需要调用原生硬件的需求，flutter不可避免的需要和原生端进行通信，flutter提供了3种通信通道。在weexbox中，已经写好了通信通道，并且根据不同情况选好不同的通道。
 * 核心类
   类名|说明|
   --|:--:|
@@ -209,44 +143,73 @@ dependencies {
   MethodChannel|传递方法调用。Flutter主动调用Native的方法，并获取相应的返回值。比如获取系统电量，发起Toast等调用系统API，可以通过这个来完成。|
   EventChannel|传递事件。这里是Native将事件通知到Flutter。比如Flutter需要监听网络情况，这时候MethodChannel就无法胜任这个需求了。EventChannel可以将Flutter的一个监听交给Native，Native去做网络广播的监听，当收到广播后借助EventChannel调用Flutter注册的监听，完成对Flutter的事件通知|
 
+### flutter调用原生提供的方法
+需要原生端先提供方法的实现，再在flutter进行调用。
+* 原生提供方法
 
-* BasicMessageChannel
+  建议使用者在继承WBFlutterActivity的基类Activity中重写以下方法，或者在WBFlutterActivity中直接修改。
+```js
+ // 子类重载此方法，就可以添加自己的method
+    open fun flutterMethodCall(call: MethodCall, result: MethodChannel.Result) {
+        val method = call.method
+        val arguments = call.arguments as? Map<String, Any> ?: TreeMap<String, Any>()
+        when (method) {
+            "methodName" -> {
+                result.success("")
+            }
+        }
+    }
+```
+* flutter调用原生方法
 
-<img src="../.vuepress/public/image/weexbox2.0/flutter_bmc_1.gif"/>
-<img src="../.vuepress/public/image/weexbox2.0/flutter_bmc_2.gif"/>
+```js
+ChannelManger.methodChannel
+        .invokeMethod('methodName';//methodName是与原生端一起定好的方法名
+```
 
-* EventChannel
 
-<img src="../.vuepress/public/image/weexbox2.0/flutter_ecl_1.gif"/>
-<img src="../.vuepress/public/image/weexbox2.0/flutter_ecl_2.gif"/>
-
-* MethodChannel
-
-<img src="../.vuepress/public/image/weexbox2.0/flutter_mcl_1.gif"/>
-<img src="../.vuepress/public/image/weexbox2.0/flutter_mcl_2.gif"/>
-
-## weex通信
-由于已有项目中使用了weex，为了统一weex，flutter，native三端的通信，我们提供了以下解决方案。
+## weexBox通信
+由于weexBox中使用了weex与flutter，为了统一weex，flutter，native三端的通信，我们提供了以下解决方案。
 <img src="../.vuepress/public/image/weexbox2.0/flutter2.png"/>
 * 路由的跳转
+在weexBox中跳转flutter界面同样采用路由的方式，并且与原来的路由跳转没有区别，只需要将router.name改为flutter，url传入flutter模块中定好的flutter路径。
+* 先在RouterManager定义flutter路径
+<img src="../.vuepress/public/image/weexbox2.0/routerManage.png"/>
+
+* flutter页面跳转flutter
 ```js
   var router = Router();
-  router.name = 'flutter';
-  router.url = 'home';
-  router.params = Map();
+  router.name = Router.nameFlutter;//Router.nameFlutter = "flutter"
+  router.url = 'test_fade_app';
+  router.params = {"sss":"sss"};
   router.navBarHidden = true;
-  router.type = 'push';
-  MethodConfig().invokeMethod(native_open_page, router.toJson());
+  router.open();
 ```
-* Event 
+* weex页面跳转flutter
+```js
+  native.router.open({
+            name: 'flutter',
+            // 隐藏导航栏
+            navBarHidden: true,
+            url: 'test_fade_app',
+            params: {
+              from: 'modify',
+            },
+          })
+```
+* 事件通知
+weexbox中的flutter、weex和native都支持全局事件通知， 任一端注册事件，任一端发送事件。下面是flutter的注册事件和发送事件，weex的事件注册与通知请查看weex章节。
 ```js
   // 发送事件
-  Event().emitEvent("eventName", Map());
+   Event.emit('eventName', {'k': 'vbbbb'});
   // 注册事件
-  Event.getInstance().receiveEvent("eventName", (val){
-  });
-  // 移除事件
-  Event.unReceiveEvent("eventName")
+  Event.register('eventName', (event) {
+                //print(event); 
+              });
+  // 注销事件
+  Event.unregister("eventName");
+  // 注销当前页面全部事件
+  Event.unregisterAll();
 ```  
 
 
