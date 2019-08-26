@@ -76,7 +76,7 @@
   支持|Android,iOS|Android,iOS|Android,iOS,web?|
 
 
-## weexBox中使用flutter
+## WeexBox中使用flutter
 ### 安装环境
 * [flutter SDK安装](https://flutter.dev/docs/get-started/install)
 * 根据flutter官网配置环境变量 
@@ -87,8 +87,10 @@
 # 新建一个weex和flutter混合工程
 weexbox create project-name -f
 ```
-#### 注意：
-* flutter章节是基于Android studio开发环境所写
+
+::: tip 注意
+flutter章节是基于Android studio开发环境所写
+:::
 
 ### 运行项目
 运行项目之前，需要先用Android Studio打开flutter_module项目，该项目在platforms文件夹下，与Android、ios项目同级。因为原生项目需要将flutter文件打包到apk里面，需要先确保flutter项目环境没有问题。打开flutter_module项目后配置好flutter与dart安装路径，如下图：
@@ -163,12 +165,12 @@ flutter:
 * flutter调用原生方法
 
 ```js
-ChannelManger.methodChannel
-        .invokeMethod('methodName';//methodName是与原生端一起定好的方法名
+ChannelManger.methodChannel.invokeMethod('methodName');
+//methodName是与原生端一起定好的方法名
 ```
 
 
-## weexBox通信
+## WeexBox通信
 由于weexBox中使用了weex与flutter，为了统一weex，flutter，native三端的通信，我们提供了以下解决方案。
 <img src="../.vuepress/public/image/weexbox2.0/flutter2.png"/>
 * 路由的跳转
@@ -181,35 +183,35 @@ ChannelManger.methodChannel
   var router = Router();
   router.name = Router.nameFlutter;//Router.nameFlutter = "flutter"
   router.url = 'test_fade_app';
-  router.params = {"sss":"sss"};
+  router.params = {'sss': 'sss'};
   router.navBarHidden = true;
   router.open();
 ```
 * weex页面跳转flutter
 ```js
-  native.router.open({
-            name: 'flutter',
-            // 隐藏导航栏
-            navBarHidden: true,
-            url: 'test_fade_app',
-            params: {
-              from: 'modify',
-            },
-          })
+native.router.open({
+  name: 'flutter',
+  // 隐藏导航栏
+  navBarHidden: true,
+  url: 'test_fade_app',
+  params: {
+    from: 'modify',
+  },
+})
 ```
 * 事件通知
 weexbox中的flutter、weex和native都支持全局事件通知， 任一端注册事件，任一端发送事件。下面是flutter的注册事件和发送事件，weex的事件注册与通知请查看weex章节。
 ```js
-  // 发送事件
-   Event.emit('eventName', {'k': 'vbbbb'});
-  // 注册事件
-  Event.register('eventName', (event) {
-                //print(event); 
-              });
-  // 注销事件
-  Event.unregister("eventName");
-  // 注销当前页面全部事件
-  Event.unregisterAll();
+// 发送事件
+Event.emit('eventName', {'k': 'vbbbb'});
+// 注册事件
+Event.register('eventName', (event) {
+  //print(event); 
+});
+// 注销事件
+Event.unregister("eventName");
+// 注销当前页面全部事件
+Event.unregisterAll();
 ```  
 
 
