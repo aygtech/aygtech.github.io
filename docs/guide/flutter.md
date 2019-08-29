@@ -30,11 +30,14 @@ flutter章节是基于Android studio开发环境所写
 ### 运行项目
 
 运行项目之前，需要先用Android Studio打开flutter_module项目，该项目在platforms文件夹下，与Android、ios项目同级。因为原生项目需要将flutter文件打包到apk里面，需要先确保flutter项目环境没有问题。打开flutter_module项目后配置好flutter与dart安装路径，如下图：
+
 * flutter sdk
 <img src="../.vuepress/public/image/weexbox2.0/flutter sdk.png"/>
+
 * dart sdk
 <img src="../.vuepress/public/image/weexbox2.0/dart_sdk.png"/>
 然后同步环境后运行该项目，编译一段时间后，生成apk成功（注意apk生成成功，不成功说明你的flutter环境有问题，请检查是否缺少了某个步骤），安装apk成功后，打开apk，Console将会报错，因为该flutter项目并不是一个纯项目，而是我们原生项目的一个依赖。接下来就可以直接运行原生项目。
+
 * 项目结构
   目录与文件|说明|
   --|:--:|
@@ -73,7 +76,9 @@ flutter:
 ```
 
 ## 原生通信
-* 对于某些需要调用原生硬件的需求，flutter不可避免的需要和原生端进行通信，flutter提供了3种通信通道。在weexbox中，已经写好了通信通道，并且根据不同情况选好不同的通道。
+
+对于某些需要调用原生硬件的需求，flutter不可避免的需要和原生端进行通信，flutter提供了3种通信通道。在weexbox中，已经写好了通信通道，并且根据不同情况选好不同的通道。
+
 * 核心类
   类名|说明|
   --|:--:|
@@ -82,12 +87,11 @@ flutter:
   EventChannel|传递事件。这里是Native将事件通知到Flutter。比如Flutter需要监听网络情况，这时候MethodChannel就无法胜任这个需求了。EventChannel可以将Flutter的一个监听交给Native，Native去做网络广播的监听，当收到广播后借助EventChannel调用Flutter注册的监听，完成对Flutter的事件通知|
 
 ### flutter调用原生提供的方法
-
 需要原生端先提供方法的实现，再在flutter进行调用。
+
 * 原生提供方法
 
-  建议使用者在继承WBFlutterActivity的基类Activity中重写以下方法，或者在WBFlutterActivity中直接修改。
-
+   建议使用者在继承WBFlutterActivity的基类Activity中重写以下方法，或者在WBFlutterActivity中直接修改。
 ```kotlin
 // 子类重载此方法，就可以添加自己的method
 open fun flutterMethodCall(call: MethodCall, result: MethodChannel.Result) {
@@ -101,7 +105,6 @@ open fun flutterMethodCall(call: MethodCall, result: MethodChannel.Result) {
 }
 ```
 * flutter调用原生方法
-
 ```dart
 ChannelManger.methodChannel.invokeMethod('methodName');
 //methodName是与原生端一起定好的方法名
@@ -109,9 +112,12 @@ ChannelManger.methodChannel.invokeMethod('methodName');
 
 ## WeexBox通信
 由于weexBox中使用了weex与flutter，为了统一weex，flutter，native三端的通信，我们提供了以下解决方案。
+
 <img src="../.vuepress/public/image/weexbox2.0/flutter2.png"/>
-* 路由的跳转
+
+### 路由的跳转
 在weexBox中跳转flutter界面同样采用路由的方式，并且与原来的路由跳转没有区别，只需要将router.name改为flutter，url传入flutter模块中定好的flutter路径。
+
 * 先在RouterManager定义flutter路径
 <img src="../.vuepress/public/image/weexbox2.0/routerManage.png"/>
 
@@ -136,9 +142,9 @@ native.router.open({
   },
 })
 ```
-* 事件通知
+### 事件通知
+weexbox中的flutter、weex和native都支持全局事件通知， 任一端注册事件，任一端发送事件。下面是flutter的注册事件和发送事件，weex的事件注册与通知请查看weex章节。
 
-  weexbox中的flutter、weex和native都支持全局事件通知， 任一端注册事件，任一端发送事件。下面是flutter的注册事件和发送事件，weex的事件注册与通知请查看weex章节。
 ```dart
 // 发送事件
 Event.emit('eventName', {'k': 'vbbbb'});
