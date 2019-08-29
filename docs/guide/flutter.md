@@ -137,7 +137,8 @@ native.router.open({
 })
 ```
 * 事件通知
-weexbox中的flutter、weex和native都支持全局事件通知， 任一端注册事件，任一端发送事件。下面是flutter的注册事件和发送事件，weex的事件注册与通知请查看weex章节。
+
+  weexbox中的flutter、weex和native都支持全局事件通知， 任一端注册事件，任一端发送事件。下面是flutter的注册事件和发送事件，weex的事件注册与通知请查看weex章节。
 ```dart
 // 发送事件
 Event.emit('eventName', {'k': 'vbbbb'});
