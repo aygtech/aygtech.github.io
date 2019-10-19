@@ -57,6 +57,6 @@ pod 'WeexBox', '~> 2.0'
 升级dependencies
 ```groovy
 dependencies {
-    api 'com.github.aygtech:weexbox-android-library:2.1.40'
+    api 'com.github.aygtech:weexbox-android-library:2.2.0'
 }
 ```
