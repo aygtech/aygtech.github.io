@@ -1,5 +1,5 @@
 # 介绍
-公司内部所有运营后台的度量标准。[点击预览](https://preview-oms.test.hnrfqj.com/loginPa)
+公司内部运营后台的度量标准。[点击预览](https://preview-oms.test.hnrfqj.com/loginPa)
 
 ## 初衷
 随着公司业务快速发展，针对运营后台需求方一方面希望快速上线，一方面希望满意度。<br>

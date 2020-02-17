@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.png
 heroText: 合摩标准化运营后台
-tagline: 公司内部所有运营后台的度量标准
+tagline: 公司内部运营后台的度量标准
 actionText: 快速上手 →
 actionLink: /guide/
 features:
@@ -11,7 +11,7 @@ features:
 - title: Vue 驱动
   details: 享受 Vue + Ant Design 的开发体验和视觉盛宴。
 - title: 特性支持
-  details: 开箱即用、常用页面标准化、Layout标准化、Less、组件化、ES6等。
+  details: 开箱即用，常用页面、Layout标准化，Less，表单设计器，组件化，ES6等。
 footer: MIT Licensed | Copyright © 2019-present 广州合摩计算机科技有限公司
 ---
 

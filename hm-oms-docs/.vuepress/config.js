@@ -18,7 +18,7 @@ module.exports = {
     '/': {
       lang: 'zh-CN',
       title: '合摩标准化运营后台',
-      description: '公司内部所有运营后台都能复用该套标准（UI界面，前端开发，交互，体验）',
+      description: '公司内部运营后台都能复用该套标准（UI界面，前端开发，交互，体验）',
     },
   },
   pageClass: 'blade',
