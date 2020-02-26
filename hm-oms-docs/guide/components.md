@@ -121,7 +121,6 @@ export default {
 | showArrow | 是否显示下拉箭头 |  Boolean | true | true,false |
 | placeholder | 选择框默认文案 |  String | '请输入搜索关键字' | - |
 
-
 ## 组件-费率
 统一各个系统用到的费率表单  
 
