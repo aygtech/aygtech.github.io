@@ -81,7 +81,7 @@ export default {
   v-decorator="['company', {
     initialValue: company,
     rules: [
-      { required: true, message: '请选择客户公司' },
+      { required: true, message: '请输入内容' },
     ],
   }]"
   @change="change"></hm-select>
