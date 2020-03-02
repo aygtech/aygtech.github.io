@@ -209,6 +209,22 @@ export default {
 | rateList | 初始数据 |  Array | [] | - |
 | formItemLayout | 布局 |  Object | {labelCol: { span: 4 }, wrapperCol: { span: 20 }} | - |
 
+## 组件-upload上传
+统一的上传组件
+支持多个图片上传/多选
+多张图片上传只需传入按钮文本为数组
+
+```html
+<hm-upload :buttonText="['Upload']"></hm-select>
+```
+```
+#### API
+| 参数 | 说明 | 类型| 默认值 | 可选值 |
+|-----|:----------|:------|:------------|:--------|
+| buttonText | 按钮文案 |  Array,String | - | - |
+| imageList | 图片数组 |  Array | [] | - |
+| multiple | 支持多选 |  Boolean | false | - |
+
 ## 过滤器
 过滤器-描述
 
